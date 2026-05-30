@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. João Miguel | Faculdade de Tecnologia SENAI Porto Alegre</title>
+    <meta name="description" content="Página institucional do Professor João Miguel Lac Roehe na Faculdade de Tecnologia SENAI Porto Alegre. Informações sobre disciplinas de IoT, Sistemas Embarcados e Programação.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Estilos Premium -->
+    <style>
+        :root {
+            /* HSL Paleta Harmoniosa (Slate & Indigo Accent) */
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #4f46e5;
+            --accent-light: #e0e7ff;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Dark Mode automático baseado nas preferências do usuário */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #090d16;
+                --bg-secondary: #111827;
+                --text-primary: #f8fafc;
+                --text-secondary: #94a3b8;
+                --accent: #6366f1;
+                --accent-light: #1e1b4b;
+                --border: #1f2937;
+                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+                --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        header {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .avatar-placeholder {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+
+        main {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-full {
+                grid-column: span 2;
+            }
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            align-self: flex-start;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            gap: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Otimizações Acessibilidade */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+    </style>
+
+    <!-- Dados Estruturados para Agentes de IA e Motores de Busca (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "João Miguel Lac Roehe",
+      "jobTitle": "Professor",
+      "worksFor": {
+        "@type": "EducationalOrganization",
+        "name": "Faculdade de Tecnologia SENAI Porto Alegre",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Porto Alegre",
+          "addressRegion": "RS",
+          "addressCountry": "BR"
+        }
+      },
+      "url": "https://professorjoaomiguel.github.io",
+      "sameAs": [
+        "https://github.com/professorjoaomiguel",
+        "http://t.me/professorjoaomiguel"
+      ],
+      "knowsAbout": [
+        "Internet das Coisas (IoT)",
+        "Sistemas Embarcados",
+        "Programação de Computadores",
+        "MicroPython",
+        "ESP32"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="avatar-placeholder" aria-hidden="true">JM</div>
+        <h1>Prof. João Miguel</h1>
+        <p class="subtitle">Professor na Faculdade de Tecnologia SENAI Porto Alegre, especializado no desenvolvimento e ensino de Sistemas Embarcados, Internet das Coisas e Programação.</p>
+        <a href="https://t.me/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+            💬 Falar no Telegram
+        </a>
+    </header>
+
+    <main>
+        <h2>🏛️ Unidades Curriculares</h2>
+        
+        <div class="grid">
+            <!-- S122 - Internet das Coisas -->
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🌐</div>
+                <h3>S122 - Internet das Coisas</h3>
+                <p>Abordagem prática cobrindo a arquitetura IoT de ponta a ponta (Percepção à Nuvem) com foco no projeto integrador da Estufa Inteligente utilizando ESP32, MQTT e Docker.</p>
+                <a href="https://github.com/professorjoaomiguel/S122_2026-1" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+            </div>
+
+            <!-- Sistemas Embarcados -->
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">🔋</div>
+                <h3>Sistemas Embarcados</h3>
+                <p>Laboratório prático utilizando a linguagem MicroPython no microcontrolador ESP32 acoplado a um Shield Multifuncional para implementar lógicas de controle, sensores e atuadores.</p>
+                <a href="https://github.com/professorjoaomiguel/lab_se" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+            </div>
+
+            <!-- Programação Básica -->
+            <div class="card grid-full">
+                <div class="card-icon" aria-hidden="true">💻</div>
+                <h3>Programação Básica</h3>
+                <p>Fundamentos de lógica de programação, cobrindo estruturas condicionais, de repetição, manipulação de dados de entrada/saída e desenvolvimento de algoritmos básicos.</p>
+                <a href="https://github.com/professorjoaomiguel/programacao-basica" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Professor João Miguel Lac Roehe. Desenvolvido para a Faculdade de Tecnologia SENAI Porto Alegre.</p>
+    </footer>
+
+</body>
+</html>

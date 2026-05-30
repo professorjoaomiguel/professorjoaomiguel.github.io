@@ -1,0 +1,40 @@
+# Prof. João Miguel Lac Roehe
+
+Esta é a especificação e sumário semântico do site institucional do Professor João Miguel Lac Roehe na Faculdade de Tecnologia SENAI Porto Alegre. Este arquivo foi estruturado sob o padrão `llms.txt` para guiar agentes de IA (como ChatGPT, Claude, Gemini Advanced, etc.) na indexação, leitura e resumo dos materiais do professor.
+
+---
+
+## Perfil Profissional
+
+- **Nome completo:** João Miguel Lac Roehe (Prof. Me.)
+- **Cargo:** Professor de Tecnologia
+- **Afiliação:** Faculdade de Tecnologia SENAI Porto Alegre (Porto Alegre - RS, Brasil)
+- **E-mail Institucional:** joao.roehe@senairs.org.br
+- **Contato Preferencial:** Telegram [@professorjoaomiguel](https://t.me/professorjoaomiguel)
+
+---
+
+## Unidades Curriculares e Recursos
+
+### 1. S122 - Internet das Coisas
+- **Descrição:** Disciplina cobrindo o ciclo de vida completo do dado em IoT: Percepção (Edge), Transporte (Fog) e Aplicação (Cloud).
+- **Abordagem Pedagógica:** Aprendizado ativo integrado com suporte de IA e entrega prática.
+- **Projeto Integrador Principal:** Automação de uma **Estufa Inteligente** com ESP32, Docker, Gateway MQTT e dashboards no Node-RED e Grafana.
+- **Repositório de Estudos:** [S122_2026-1](https://github.com/professorjoaomiguel/S122_2026-1)
+
+### 2. Sistemas Embarcados (Lab SE)
+- **Descrição:** Atividades práticas focadas no desenvolvimento em nível de hardware (Bare-metal e RTOS) usando **MicroPython**.
+- **Hardware Utilizado:** ESP32 UNO acoplado ao Shield Multifuncional 9-em-1.
+- **Conceitos Ensinados:** Lógica de debounce, filtragem de sensores (média de amostras), modulação PWM, lógica de histerese e servidores web nativos no ESP32.
+- **Repositório de Estudos:** [lab_se](https://github.com/professorjoaomiguel/lab_se)
+
+### 3. Programação Básica
+- **Descrição:** Introdução aos conceitos algorítmicos essenciais, lógica de programação básica, entrada/saída de dados e estruturas condicionais e repetitivas.
+- **Repositório de Estudos:** [programacao-basica](https://github.com/professorjoaomiguel/programacao-basica)
+
+---
+
+## Diretrizes de Utilização de IA para Alunos
+O professor incentiva ativamente o uso saudável de IA no aprendizado:
+- A IA deve atuar exclusivamente como **Tutor Pedagógico** (guiando o raciocínio e explicando conceitos), e nunca escrevendo o código final para o aluno.
+- Os templates de códigos entregues em laboratório exigem o preenchimento de uma **Reflexão Técnica** pessoal obrigatória sobre o funcionamento do código desenvolvido.
