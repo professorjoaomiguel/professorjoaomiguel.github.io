@@ -1,6 +1,6 @@
 # Prof. João Miguel Lac Roehe
 
-Esta é a especificação e sumário semântico do site institucional do Professor João Miguel Lac Roehe na Faculdade de Tecnologia SENAI Porto Alegre. Este arquivo foi estruturado sob o padrão `llms.txt` para guiar agentes de IA (como ChatGPT, Claude, Gemini Advanced, etc.) na indexação, leitura e resumo dos materiais do professor.
+Esta é a especificação e sumário semântico do site pessoal do Professor João Miguel Lac Roehe na Faculdade de Tecnologia SENAI Porto Alegre. Este arquivo foi estruturado sob o padrão `llms.txt` para guiar agentes de IA (como ChatGPT, Claude, Gemini Advanced, etc.) na indexação, leitura e resumo dos materiais do professor.
 
 ---
 
@@ -35,6 +35,19 @@ Esta é a especificação e sumário semântico do site institucional do Profess
 - **Descrição:** Introdução aos conceitos algorítmicos essenciais, lógica de programação básica, entrada/saída de dados e estruturas condicionais e repetitivas.
 - **Material da Disciplina:** [sites.google.com/view/pjm-programacao](https://sites.google.com/view/pjm-programacao/) (curso completo com sequência de aulas, referências e vídeos)
 - **Repositório de Estudos:** privado no momento (disciplina lecionada há bastante tempo); o repositório GitHub [programacao-basica](https://github.com/professorjoaomiguel/programacao-basica) será tornado público em breve.
+
+---
+
+## Atalhos da Faculdade (SENAI-RS)
+
+Links institucionais de uso geral, úteis a qualquer aluno independente da disciplina:
+
+- **Portal da Faculdade SENAI:** [senairs.org.br/faculdade-senai](https://www.senairs.org.br/faculdade-senai)
+- **Portal do Aluno:** [portaldoaluno.fiergs.org.br](https://portaldoaluno.fiergs.org.br/FrameHTML/web/app/edu/PortalEducacional/login/)
+- **AVA Moodle:** [rs.ead.senai.br](https://rs.ead.senai.br/)
+- **Conta Google Institucional:** [meusenai.senai.br](https://meusenai.senai.br/)
+- **Biblioteca Virtual:** [bvirtual.com.br](https://www.bvirtual.com.br/)
+- **Pergamum (Biblioteca própria do SENAI-RS):** [pergamum.senairs.org.br](https://pergamum.senairs.org.br/)
 
 ---
 

@@ -1,4 +1,4 @@
-# Contexto de IA — professorjoaomiguel.github.io (site institucional)
+# Contexto de IA — professorjoaomiguel.github.io (site pessoal)
 
 Esta é a **fonte única de verdade (SSoT)** deste repositório para qualquer agente de IA (Claude, GitHub Copilot, Antigravity, ou outro). Todos os arquivos de entrada específicos de cada ferramenta (`.github/copilot-instructions.md`, `CLAUDE.md`, `AGENTS.md`) apontam para este arquivo e não devem duplicar o conteúdo abaixo — se algo mudar, edite apenas aqui.
 
@@ -25,7 +25,7 @@ Esta é a **fonte única de verdade (SSoT)** deste repositório para qualquer ag
 
 ## Visão Geral do Repositório
 
-Este é o **repositório do site institucional** (GitHub Pages) para [@professorjoaomiguel](https://github.com/professorjoaomiguel).
+Este é o **repositório do site pessoal** (GitHub Pages) para [@professorjoaomiguel](https://github.com/professorjoaomiguel).
 
 **Objetivo do site:** ser o *ponto de chegada dos alunos*. Deve ser limpo, direto e fácil de achar as coisas — priorize clareza sobre qualquer elemento decorativo. Este repositório é irmão de [`professorjoaomiguel`](https://github.com/professorjoaomiguel/professorjoaomiguel) (perfil GitHub), que tem objetivo mais básico (bio + disciplinas); não confundir o escopo dos dois.
 
@@ -69,6 +69,18 @@ O mesmo hub lista outras 3 disciplinas antigas (Robótica Industrial, Instrument
 3. Adicionar uma entrada correspondente em `llms.txt` (mesmo formato das disciplinas existentes).
 4. Avaliar com o usuário se `S122_2026-1` (semestre anterior) deve ser removido/arquivado nesse momento — não remover unilateralmente.
 5. Atualizar a tabela acima.
+
+## Atalhos da Faculdade (seção `.shortcut-grid` em `index.html`)
+
+Seção abaixo do grid de disciplinas com links institucionais genéricos (úteis a qualquer aluno, não específicos de uma disciplina): Portal da Faculdade SENAI, Portal do Aluno, AVA Moodle, Conta Google Institucional, Biblioteca Virtual, Pergamum. Mesma lista replicada em `llms.txt` na seção "Atalhos da Faculdade (SENAI-RS)".
+
+**Origem:** reaproveitado do Google Sites legado `sites.google.com/view/atalhosfaculdade` (achado em 2026-07-23 durante auditoria do Linktree), que tinha esse mesmo propósito ("ponto de chegada para os alunos... acessar as diversas ferramentas e plataformas da faculdade"). Só a coluna "Estudante" (atalhos institucionais) foi trazida; a coluna "Professor" era redundante com os contatos já no site, e a seção "Introdução Automação e Mecatrônica" (link de convite de Telegram, pasta de Drive, Moodle/Classroom de uma turma específica) foi deixada de fora por ser conteúdo de disciplina específica e desatualizada.
+
+**Correção de link:** o Google Sites legado linkava `portalaluno.fiergs.org.br` (sem "do"), que está morto (`DNS_PROBE_FINISHED_NXDOMAIN`, confirmado em 2026-07-23 no navegador real do usuário). O usuário forneceu o link correto e atual: `https://portaldoaluno.fiergs.org.br/FrameHTML/web/app/edu/PortalEducacional/login/` (com "do"). Usado esse em vez do antigo.
+
+**Biblioteca:** o usuário confirmou que `pergamum.senairs.org.br` (raiz, sem o caminho profundo `/pergamum_senai/biblioteca/index.php` do Google Sites antigo) é o site correto da biblioteca própria do SENAI-RS. `bvirtual.com.br` é um sistema de biblioteca virtual distinto (provavelmente um serviço de terceiros usado em paralelo) — mantido também, mas não confundir os dois.
+
+**Regra para agentes:** ao editar esta seção, manter os dois arquivos (`index.html` e `llms.txt`) sincronizados — mesma lista, mesmos links.
 
 ## Ofuscação de E-mail
 
@@ -118,8 +130,14 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - Google Sites hub revelou um contato **LinkedIn** (`linkedin.com/in/joaomiguel`) que não existia em nenhum lugar — adicionado como novo badge no site, no `llms.txt` e no README do perfil.
 - Google Sites hub também lista um subsite legado e público de Programação Básica com curso completo — usado como link temporário do card "Programação Básica" (ver seção "Regras de Links para Disciplinas" acima) e 3 disciplinas antigas descontinuadas (Robótica Industrial, Instrumentação e Sensoriamento, Microprocessadores), deixadas de fora por decisão do usuário.
 
+### 2026-07-23 (cont.): Seção "Atalhos da Faculdade"
+- **Motivo:** usuário explorou `sites.google.com/view/atalhosfaculdade` (linkado a partir do hub do Google Sites) e confirmou que era destinado a ser "ponto de chegada para os alunos... acessar as diversas ferramentas e plataformas da faculdade SENAI".
+- Adicionada seção `.shortcut-grid` em `index.html` (ver detalhes acima) com 6 atalhos institucionais, replicada em `llms.txt`.
+- Corrigido link do Portal do Aluno: o Google Sites legado tinha `portalaluno.fiergs.org.br` (morto); usuário forneceu o link correto `portaldoaluno.fiergs.org.br/FrameHTML/web/app/edu/PortalEducacional/login/`.
+- Usuário confirmou `pergamum.senairs.org.br` (raiz) como o site correto da biblioteca própria do SENAI-RS.
+- Coluna "Professor" do Google Sites (redundante) e seção "Introdução Automação e Mecatrônica" (disciplina específica, com link de convite de Telegram provavelmente expirado) não foram reaproveitadas.
+
 ## 🎯 Próximos Passos
 - Quando `S053-2026-2` / `S086-2026-2` forem publicados publicamente: seguir o processo descrito em "Regras de Links para Disciplinas" acima.
 - Quando `programacao-basica` (GitHub) for tornado público: trocar o link do card de Google Sites para GitHub (processo descrito acima).
 - Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
-- `sites.google.com/view/atalhosfaculdade` (linkado a partir do hub do Google Sites, seção "Diversos") não foi explorado — avaliar depois se tem algo relevante.

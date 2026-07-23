@@ -1,6 +1,6 @@
 # professorjoaomiguel.github.io
 
-Site institucional (GitHub Pages) do Prof. João Miguel — ponto de chegada para alunos, com links para as disciplinas correntes.
+Site pessoal (GitHub Pages) do Prof. João Miguel — ponto de chegada para alunos, com links para as disciplinas correntes.
 
 Contexto de manutenção e convenções para agentes de IA: [`.ai/context.md`](.ai/context.md).
 
