@@ -36,6 +36,11 @@ Esta é a especificação e sumário semântico do site pessoal do Professor Jo�
 - **Material da Disciplina:** [sites.google.com/view/pjm-programacao](https://sites.google.com/view/pjm-programacao/) (curso completo com sequência de aulas, referências e vídeos)
 - **Repositório de Estudos:** privado no momento (disciplina lecionada há bastante tempo); o repositório GitHub [programacao-basica](https://github.com/professorjoaomiguel/programacao-basica) será tornado público em breve.
 
+### 4. S086 - Sistemas Microprocessados
+- **Descrição:** Guia técnico e laboratório prático da disciplina, com hardware ESP32 e Arduino UNO programados em C/C++ (Arduino framework).
+- **Simulação:** [Wokwi](https://wokwi.com) para montar e testar circuitos e código antes de ir para a placa física.
+- **Repositório de Estudos:** [S086_2026-2](https://github.com/professorjoaomiguel/S086_2026-2)
+
 ---
 
 ## Atalhos da Faculdade (SENAI-RS)

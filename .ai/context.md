@@ -50,7 +50,7 @@ Estado atual (checado em 2026-07-23):
 | `S122_2026-1` | Internet das Coisas — semestre 2026-1 | público | visível (semestre anterior; não remover sem instrução explícita do usuário) |
 | `programacao-basica` | Programação Básica | **privado** | **visível**, mas o `card-link` aponta para `https://sites.google.com/view/pjm-programacao/` (material da disciplina, já público) em vez do GitHub; card tem uma nota discreta ("📦 Repositório de código no GitHub em breve") |
 | `S053-2026-2` | disciplina do semestre corrente (2026-2) | ainda não publicado no GitHub | não incluído |
-| `S086-2026-2` | disciplina do semestre corrente (2026-2) | ainda não publicado no GitHub | não incluído |
+| `S086_2026-2` | S086 - Sistemas Microprocessados (2026-2) | público | visível (card "S086 - Sistemas Microprocessados") |
 
 ### Quando `programacao-basica` (GitHub) for tornado público
 1. Trocar o `href` do `card-link` no card "Programação Básica" em `index.html` de `sites.google.com/view/pjm-programacao/` para `https://github.com/professorjoaomiguel/programacao-basica`, e o texto de "Acessar Material da Disciplina" para "Acessar Repositório".
@@ -63,7 +63,7 @@ Estado atual (checado em 2026-07-23):
 
 O mesmo hub lista outras 3 disciplinas antigas (Robótica Industrial, Instrumentação e Sensoriamento, Microprocessadores) que **não fazem parte da grade atual** — usuário decidiu (2026-07-23) deixá-las de fora do site por serem histórico; não recriar cards para elas sem nova instrução explícita.
 
-### Quando `S053-2026-2` e/ou `S086-2026-2` forem publicados e públicos
+### Quando `S053-2026-2` for publicado e público
 1. Confirmar visibilidade pública (`gh repo view ... --json visibility`).
 2. Adicionar um novo `.card` no `.grid` de `index.html`, seguindo exatamente o padrão dos cards existentes (ícone, `h3`, `p`, `card-link`).
 3. Adicionar uma entrada correspondente em `llms.txt` (mesmo formato das disciplinas existentes).
@@ -137,7 +137,13 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - Usuário confirmou `pergamum.senairs.org.br` (raiz) como o site correto da biblioteca própria do SENAI-RS.
 - Coluna "Professor" do Google Sites (redundante) e seção "Introdução Automação e Mecatrônica" (disciplina específica, com link de convite de Telegram provavelmente expirado) não foram reaproveitadas.
 
+### 2026-07-23 (cont.): Foto real como avatar/favicon, e card de S086 - Sistemas Microprocessados
+- **Motivo:** usuário forneceu uma foto pessoal (extraída do Google Sites legado) para substituir o placeholder de iniciais "JM"; e informou que o esqueleto do repositório `S086_2026-2` (Sistemas Microprocessados) já foi publicado no GitHub.
+- Adicionado `assets/avatar.png` (foto real do usuário, 400×400, já circular/com moldura). Usado como avatar no `header` de `index.html` (substitui `.avatar-placeholder` com iniciais) e como favicon (`<link rel="icon" type="image/png">`, substitui `favicon.svg`, removido por ficar sem uso).
+- `assets/og-image-template.html` atualizado para usar a mesma foto no lugar das iniciais; `assets/og-image.jpg` regenerado via screenshot (1512×804), conforme diretiva "Regenerar `assets/og-image.jpg`" acima.
+- Confirmada visibilidade pública de `S086_2026-2` (`gh repo list`) e adicionado card "S086 - Sistemas Microprocessados" em `index.html` (ESP32/Arduino UNO, C/C++, simulação Wokwi) e entrada correspondente em `llms.txt`. Tabela de disciplinas e seção "Próximos Passos" atualizadas.
+
 ## 🎯 Próximos Passos
-- Quando `S053-2026-2` / `S086-2026-2` forem publicados publicamente: seguir o processo descrito em "Regras de Links para Disciplinas" acima.
+- Quando `S053-2026-2` for publicado publicamente: seguir o processo descrito em "Regras de Links para Disciplinas" acima.
 - Quando `programacao-basica` (GitHub) for tornado público: trocar o link do card de Google Sites para GitHub (processo descrito acima).
 - Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
