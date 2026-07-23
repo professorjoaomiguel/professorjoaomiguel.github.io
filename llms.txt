@@ -9,8 +9,11 @@ Esta é a especificação e sumário semântico do site institucional do Profess
 - **Nome completo:** João Miguel Lac Roehe (Prof. Me.)
 - **Cargo:** Professor de Tecnologia
 - **Afiliação:** Faculdade de Tecnologia SENAI Porto Alegre (Porto Alegre - RS, Brasil)
-- **E-mail Institucional:** joao.roehe@senairs.org.br
 - **Contato Preferencial:** Telegram [@professorjoaomiguel](https://t.me/professorjoaomiguel)
+- **Instagram:** [@professorjoaomiguel](https://www.instagram.com/professorjoaomiguel)
+- **YouTube:** [Canal do Professor](https://www.youtube.com/c/professorjoaomiguel)
+- **LinkedIn:** [linkedin.com/in/joaomiguel](https://www.linkedin.com/in/joaomiguel)
+- **E-mail institucional:** disponível na página inicial (ofuscado via JavaScript para reduzir coleta automatizada por bots; não reproduzido aqui em texto plano — use o Telegram como contato preferencial)
 
 ---
 
@@ -30,7 +33,8 @@ Esta é a especificação e sumário semântico do site institucional do Profess
 
 ### 3. Programação Básica
 - **Descrição:** Introdução aos conceitos algorítmicos essenciais, lógica de programação básica, entrada/saída de dados e estruturas condicionais e repetitivas.
-- **Repositório de Estudos:** [programacao-basica](https://github.com/professorjoaomiguel/programacao-basica)
+- **Material da Disciplina:** [sites.google.com/view/pjm-programacao](https://sites.google.com/view/pjm-programacao/) (curso completo com sequência de aulas, referências e vídeos)
+- **Repositório de Estudos:** privado no momento (disciplina lecionada há bastante tempo); o repositório GitHub [programacao-basica](https://github.com/professorjoaomiguel/programacao-basica) será tornado público em breve.
 
 ---
 

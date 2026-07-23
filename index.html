@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prof. João Miguel | Faculdade de Tecnologia SENAI Porto Alegre</title>
     <meta name="description" content="Página institucional do Professor João Miguel Lac Roehe na Faculdade de Tecnologia SENAI Porto Alegre. Informações sobre disciplinas de IoT, Sistemas Embarcados e Programação.">
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph / Facebook / WhatsApp / Telegram -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://professorjoaomiguel.github.io/">
+    <meta property="og:title" content="Prof. João Miguel | Faculdade de Tecnologia SENAI Porto Alegre">
+    <meta property="og:description" content="Página institucional do Professor João Miguel Lac Roehe: disciplinas de IoT, Sistemas Embarcados e Programação, e links de contato.">
+    <meta property="og:image" content="https://professorjoaomiguel.github.io/assets/og-image.jpg">
+    <meta property="og:image:width" content="1512">
+    <meta property="og:image:height" content="804">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prof. João Miguel | Faculdade de Tecnologia SENAI Porto Alegre">
+    <meta name="twitter:description" content="Página institucional do Professor João Miguel Lac Roehe: disciplinas de IoT, Sistemas Embarcados e Programação, e links de contato.">
+    <meta name="twitter:image" content="https://professorjoaomiguel.github.io/assets/og-image.jpg">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,6 +120,15 @@
             margin: 0 auto 2rem auto;
         }
 
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0 auto 2rem auto;
+        }
+
         .contact-badge {
             display: inline-flex;
             align-items: center;
@@ -120,6 +148,15 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent);
+        }
+
+        footer .license {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        footer .license a {
+            color: var(--text-secondary);
         }
 
         main {
@@ -192,6 +229,13 @@
             flex-grow: 1;
         }
 
+        .card-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+        }
+
         .card-link {
             align-self: flex-start;
             color: var(--accent);
@@ -244,7 +288,10 @@
       "url": "https://professorjoaomiguel.github.io",
       "sameAs": [
         "https://github.com/professorjoaomiguel",
-        "http://t.me/professorjoaomiguel"
+        "http://t.me/professorjoaomiguel",
+        "https://www.instagram.com/professorjoaomiguel",
+        "https://www.youtube.com/c/professorjoaomiguel",
+        "https://www.linkedin.com/in/joaomiguel"
       ],
       "knowsAbout": [
         "Internet das Coisas (IoT)",
@@ -262,9 +309,23 @@
         <div class="avatar-placeholder" aria-hidden="true">JM</div>
         <h1>Prof. João Miguel</h1>
         <p class="subtitle">Professor na Faculdade de Tecnologia SENAI Porto Alegre, especializado no desenvolvimento e ensino de Sistemas Embarcados, Internet das Coisas e Programação.</p>
-        <a href="https://t.me/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
-            💬 Falar no Telegram
-        </a>
+        <div class="contact-row">
+            <a href="https://t.me/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                💬 Falar no Telegram
+            </a>
+            <a href="https://www.instagram.com/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                📸 Seguir no Instagram
+            </a>
+            <a href="https://www.youtube.com/c/professorjoaomiguel?sub_confirmation=1" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                ▶️ Inscrever-se no YouTube
+            </a>
+            <a href="https://www.linkedin.com/in/joaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                💼 Conectar no LinkedIn
+            </a>
+            <a href="#" class="contact-badge" id="email-badge" rel="noopener noreferrer" aria-label="Enviar e-mail institucional">
+                ✉️ <span id="email-label">E-mail institucional</span>
+            </a>
+        </div>
     </header>
 
     <main>
@@ -292,14 +353,35 @@
                 <div class="card-icon" aria-hidden="true">💻</div>
                 <h3>Programação Básica</h3>
                 <p>Fundamentos de lógica de programação, cobrindo estruturas condicionais, de repetição, manipulação de dados de entrada/saída e desenvolvimento de algoritmos básicos.</p>
-                <a href="https://github.com/professorjoaomiguel/programacao-basica" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+                <div class="card-note">📦 Repositório de código no GitHub em breve — por enquanto, acesse o material completo da disciplina abaixo.</div>
+                <a href="https://sites.google.com/view/pjm-programacao/" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Material da Disciplina &rarr;</a>
             </div>
+
+            <!--
+              PENDENTE: disciplinas do semestre corrente (2026-2), ainda não publicadas.
+              Quando S053-2026-2 e/ou S086-2026-2 forem públicos no GitHub, adicionar aqui
+              um novo .card por disciplina, seguindo o padrão dos cards acima.
+              Ver .ai/context.md > "Regras de Links para Disciplinas".
+            -->
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Professor João Miguel Lac Roehe. Desenvolvido para a Faculdade de Tecnologia SENAI Porto Alegre.</p>
+        <p class="license">🅭 Conteúdo sob licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
     </footer>
 
+    <script>
+    (function () {
+        var badge = document.getElementById('email-badge');
+        var label = document.getElementById('email-label');
+        if (!badge || !label) return;
+        var user = ['j', 'o', 'a', 'o', '.', 'r', 'o', 'e', 'h', 'e'].join('');
+        var host = ['s', 'e', 'n', 'a', 'i', 'r', 's', '.', 'o', 'r', 'g', '.', 'b', 'r'].join('');
+        var address = user + '@' + host;
+        badge.setAttribute('href', 'mailto:' + address);
+        label.textContent = address;
+    })();
+    </script>
 </body>
 </html>
