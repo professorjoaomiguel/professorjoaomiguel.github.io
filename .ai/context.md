@@ -42,6 +42,10 @@ Este é o **repositório do site pessoal** (GitHub Pages) para [@professorjoaomi
 
 **Nunca linkar um repositório privado como se fosse acessível.** Antes de adicionar ou reativar um card/link de disciplina, confirmar visibilidade com `gh repo view <owner>/<repo> --json visibility`.
 
+**A tabela abaixo pode ficar desatualizada** (repos novos, renomeados ou publicados fora deste fluxo) — antes de confiar nela, rodar `gh repo list professorjoaomiguel --limit 100 --json name,visibility,updatedAt,description` para ver o estado real. Para identificar a que disciplina um repo pertence sem clonar, ler o README remoto: `gh api repos/professorjoaomiguel/<repo>/readme -q .content | base64 -d`.
+
+**Publicando um repositório de disciplina que só existe local:** dentro da pasta local, `gh repo create professorjoaomiguel/<repo> --public --source=. --remote=origin --description "..."` seguido de `git push -u origin main`. Antes de publicar, adicionar `.claude/` ao `.gitignore` do repo da disciplina — config local de ferramentas de IA não deve ir para um repositório público voltado a alunos.
+
 Estado atual (checado em 2026-09-07 — usuário confirmou explicitamente quais UCs estão em curso neste semestre):
 
 | Repositório | Disciplina | Visibilidade | Card no site |
