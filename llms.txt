@@ -19,27 +19,16 @@ Esta é a especificação e sumário semântico do site pessoal do Professor Jo�
 
 ## Unidades Curriculares e Recursos
 
-### 1. S122 - Internet das Coisas
-- **Descrição:** Disciplina cobrindo o ciclo de vida completo do dado em IoT: Percepção (Edge), Transporte (Fog) e Aplicação (Cloud).
-- **Abordagem Pedagógica:** Aprendizado ativo integrado com suporte de IA e entrega prática.
-- **Projeto Integrador Principal:** Automação de uma **Estufa Inteligente** com ESP32, Docker, Gateway MQTT e dashboards no Node-RED e Grafana.
-- **Repositório de Estudos:** [S122_2026-1](https://github.com/professorjoaomiguel/S122_2026-1)
+Disciplinas do semestre corrente (2026-2). Disciplinas de semestres anteriores (S122 - Internet das Coisas, Sistemas Embarcados / lab_se, Programação Básica via Google Sites) não estão sendo ministradas neste semestre e foram removidas desta lista.
 
-### 2. Sistemas Embarcados (Lab SE)
-- **Descrição:** Atividades práticas focadas no desenvolvimento em nível de hardware (Bare-metal e RTOS) usando **MicroPython**.
-- **Hardware Utilizado:** ESP32 UNO acoplado ao Shield Multifuncional 9-em-1.
-- **Conceitos Ensinados:** Lógica de debounce, filtragem de sensores (média de amostras), modulação PWM, lógica de histerese e servidores web nativos no ESP32.
-- **Repositório de Estudos:** [lab_se](https://github.com/professorjoaomiguel/lab_se)
-
-### 3. Programação Básica
-- **Descrição:** Introdução aos conceitos algorítmicos essenciais, lógica de programação básica, entrada/saída de dados e estruturas condicionais e repetitivas.
-- **Material da Disciplina:** [sites.google.com/view/pjm-programacao](https://sites.google.com/view/pjm-programacao/) (curso completo com sequência de aulas, referências e vídeos)
-- **Repositório de Estudos:** privado no momento (disciplina lecionada há bastante tempo); o repositório GitHub [programacao-basica](https://github.com/professorjoaomiguel/programacao-basica) será tornado público em breve.
-
-### 4. S086 - Sistemas Microprocessados
+### 1. S086 - Sistemas Microprocessados
 - **Descrição:** Guia técnico e laboratório prático da disciplina, com hardware ESP32 e Arduino UNO programados em C/C++ (Arduino framework).
 - **Simulação:** [Wokwi](https://wokwi.com) para montar e testar circuitos e código antes de ir para a placa física.
 - **Repositório de Estudos:** [S086_2026-2](https://github.com/professorjoaomiguel/S086_2026-2)
+
+### 2. S053 - Programação Básica
+- **Descrição:** Introdução aos conceitos algorítmicos essenciais: pseudocódigo, fluxograma e desenvolvimento em Linguagem C, com exercícios práticos de cada aula.
+- **Repositório de Estudos:** [S053-2026-2](https://github.com/professorjoaomiguel/S053-2026-2)
 
 ---
 

@@ -18,10 +18,10 @@ Esta é a **fonte única de verdade (SSoT)** deste repositório para qualquer ag
   4. LinkedIn: [linkedin.com/in/joaomiguel](https://www.linkedin.com/in/joaomiguel)
   5. E-mail institucional — ofuscado via JS (ver abaixo)
 - **Contatos descontinuados (não incluir no site):** canal de Telegram `@canalprofessorjoaomiguel` e página do Facebook (`facebook.com/professorjoaomiguel`) — confirmados em desuso pelo usuário em 2026-07-23; existem no Linktree antigo mas não devem ser replicados aqui.
-- **Disciplinas ministradas:**
-  - **S122 - Internet das Coisas** (ESP32, MicroPython, C++ Arduino, Raspberry Pi, MQTT, Node-RED, Grafana, Estufa Inteligente)
-  - **Sistemas Embarcados (Lab SE)** (ESP32 UNO, MicroPython, Shield 9-em-1)
-  - **Programação Básica**
+- **Disciplinas ministradas (semestre corrente, 2026-2):**
+  - **S086 - Sistemas Microprocessados** (ESP32, Arduino UNO, C/C++, simulação Wokwi)
+  - **S053 - Programação Básica** (algoritmos, pseudocódigo, fluxograma, Linguagem C) — exercícios do semestre no repositório [`S053-2026-2`](https://github.com/professorjoaomiguel/S053-2026-2) (público desde 2026-09-07)
+  - **Disciplinas de semestres anteriores, não ministradas neste semestre (2026-2), confirmado pelo usuário em 2026-09-07:** S122 - Internet das Coisas, Sistemas Embarcados (Lab SE), Programação Básica (versão antiga via `lab_intro`/Google Sites). Não recriar esses cards sem nova instrução explícita do usuário.
 
 ## Visão Geral do Repositório
 
@@ -42,33 +42,25 @@ Este é o **repositório do site pessoal** (GitHub Pages) para [@professorjoaomi
 
 **Nunca linkar um repositório privado como se fosse acessível.** Antes de adicionar ou reativar um card/link de disciplina, confirmar visibilidade com `gh repo view <owner>/<repo> --json visibility`.
 
-Estado atual (checado em 2026-07-23):
+Estado atual (checado em 2026-09-07 — usuário confirmou explicitamente quais UCs estão em curso neste semestre):
 
 | Repositório | Disciplina | Visibilidade | Card no site |
 |---|---|---|---|
-| `lab_se` | Sistemas Embarcados (Lab SE) | público | visível |
-| `S122_2026-1` | Internet das Coisas — semestre 2026-1 | público | visível (semestre anterior; não remover sem instrução explícita do usuário) |
-| `programacao-basica` | Programação Básica | **privado** | **visível**, mas o `card-link` aponta para `https://sites.google.com/view/pjm-programacao/` (material da disciplina, já público) em vez do GitHub; card tem uma nota discreta ("📦 Repositório de código no GitHub em breve") |
-| `S053-2026-2` | disciplina do semestre corrente (2026-2) | ainda não publicado no GitHub | não incluído |
 | `S086_2026-2` | S086 - Sistemas Microprocessados (2026-2) | público | visível (card "S086 - Sistemas Microprocessados") |
+| `S053-2026-2` | S053 - Programação Básica — exercícios do semestre corrente (2026-2) | público (criado e publicado em 2026-09-07, antes só existia local em `C:\GitHub\S053-2026-2`) | visível (card "S053 - Programação Básica") |
+| `lab_se` | Sistemas Embarcados (Lab SE) | público | **removido** — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07) |
+| `S122_2026-1` | Internet das Coisas — semestre 2026-1 | público | **removido** — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07); repo permanece público no GitHub, só não tem mais card no site |
+| `programacao-basica` | Programação Básica — conteúdo perene (slides, material teórico) para onde o usuário está migrando aos poucos | privado | não incluído — não linkar até o usuário tornar público (ver nota abaixo) |
+| `lab_intro` | Programação Básica (labs Arduino/Wokwi/Tinkercad, versão anterior) | público | não incluído — não é a UC do semestre corrente; não confundir com `S053-2026-2` |
 
-### Quando `programacao-basica` (GitHub) for tornado público
-1. Trocar o `href` do `card-link` no card "Programação Básica" em `index.html` de `sites.google.com/view/pjm-programacao/` para `https://github.com/professorjoaomiguel/programacao-basica`, e o texto de "Acessar Material da Disciplina" para "Acessar Repositório".
-2. Remover (ou manter, a critério do usuário) a `.card-note` sobre o repositório "em breve".
-3. Atualizar `llms.txt` para trocar o link do Google Site pelo do GitHub, ou manter os dois se fizer sentido.
-4. Atualizar a tabela acima.
+### Dois repositórios para Programação Básica (usuário esclareceu em 2026-09-07)
+- **`S053-2026-2`** — exercícios e conteúdo do semestre corrente (aulas, código em C). É o que aparece no site.
+- **`programacao-basica`** — repositório separado para onde o usuário está migrando aos poucos os slides e o conteúdo mais perene (não específico de um semestre). Continua **privado**; usuário decidiu (2026-09-07) não linká-lo ainda. Quando ele tornar esse repositório público, adicionar um segundo `card-link` dentro do mesmo card "S053 - Programação Básica" (ex.: "Exercícios" → `S053-2026-2`, "Slides/Material" → `programacao-basica`) — não criar um card separado, já que é a mesma UC.
 
 ### Achado: subsite legado de Programação Básica
-`sites.google.com/view/pjm-programacao/` é um Google Sites antigo, já público, com curso completo em C (Dev-C++/GCC): sequência de aulas, vídeos incorporados e referências. Está linkado a partir do hub `sites.google.com/view/professorjoaomiguel` (seção "Cursos"), que por sua vez está linkado no Linktree do usuário. Usado (2026-07-23) como link temporário do card "Programação Básica" enquanto o repositório GitHub correspondente é privado — ver tabela acima.
+`sites.google.com/view/pjm-programacao/` é um Google Sites antigo, já público, com curso completo em C (Dev-C++/GCC): sequência de aulas, vídeos incorporados e referências. Estava linkado a partir do hub `sites.google.com/view/professorjoaomiguel` (seção "Cursos") e foi usado (2026-07-23 a 2026-09-07) como link temporário do card "Programação Básica" enquanto não havia repositório GitHub público — **removido em 2026-09-07**, substituído pelo link direto para `S053-2026-2`.
 
 O mesmo hub lista outras 3 disciplinas antigas (Robótica Industrial, Instrumentação e Sensoriamento, Microprocessadores) que **não fazem parte da grade atual** — usuário decidiu (2026-07-23) deixá-las de fora do site por serem histórico; não recriar cards para elas sem nova instrução explícita.
-
-### Quando `S053-2026-2` for publicado e público
-1. Confirmar visibilidade pública (`gh repo view ... --json visibility`).
-2. Adicionar um novo `.card` no `.grid` de `index.html`, seguindo exatamente o padrão dos cards existentes (ícone, `h3`, `p`, `card-link`).
-3. Adicionar uma entrada correspondente em `llms.txt` (mesmo formato das disciplinas existentes).
-4. Avaliar com o usuário se `S122_2026-1` (semestre anterior) deve ser removido/arquivado nesse momento — não remover unilateralmente.
-5. Atualizar a tabela acima.
 
 ## Atalhos da Faculdade (seção `.shortcut-grid` em `index.html`)
 
@@ -143,7 +135,15 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - `assets/og-image-template.html` atualizado para usar a mesma foto no lugar das iniciais; `assets/og-image.jpg` regenerado via screenshot (1512×804), conforme diretiva "Regenerar `assets/og-image.jpg`" acima.
 - Confirmada visibilidade pública de `S086_2026-2` (`gh repo list`) e adicionado card "S086 - Sistemas Microprocessados" em `index.html` (ESP32/Arduino UNO, C/C++, simulação Wokwi) e entrada correspondente em `llms.txt`. Tabela de disciplinas e seção "Próximos Passos" atualizadas.
 
+### 2026-09-07: Atualização para as UCs do semestre 2026-2
+- **Motivo:** usuário pediu para atualizar o site para refletir as UCs efetivamente em curso neste semestre (2026-2); grid de disciplinas estava desatualizado (misturava disciplinas de semestres anteriores com a atual).
+- Usuário confirmou explicitamente: apenas **S086 - Sistemas Microprocessados** e **S053 - Programação Básica** estão sendo ministradas neste semestre. S122 - Internet das Coisas e Sistemas Embarcados (Lab SE) não estão em curso — cards removidos de `index.html` e `llms.txt` (repositórios GitHub `S122_2026-1` e `lab_se` permanecem públicos, só não têm mais card no site).
+- Repositório `S053-2026-2` (exercícios do semestre, antes só local em `C:\GitHub\S053-2026-2`) foi criado e publicado no GitHub como público nesta sessão (`gh repo create` + push); card "S053 - Programação Básica" adicionado em `index.html` e entrada correspondente em `llms.txt`.
+- Usuário esclareceu que existe um **segundo** repositório de Programação Básica, `programacao-basica`, para onde está migrando aos poucos slides e conteúdo perene (não específico de semestre) — continua privado por decisão do usuário; não linkado ainda (ver seção "Dois repositórios para Programação Básica" acima).
+- Achado durante a investigação: `lab_intro` (repositório público, labs de Arduino/Wokwi/Tinkercad) também se descreve como material de "Programação Básica", mas é de uma versão anterior/não é a UC do semestre corrente — deixado de fora do site para não confundir com `S053-2026-2`.
+- Tabela de disciplinas e seção "Disciplinas ministradas" (Perfil) atualizadas.
+
 ## 🎯 Próximos Passos
-- Quando `S053-2026-2` for publicado publicamente: seguir o processo descrito em "Regras de Links para Disciplinas" acima.
-- Quando `programacao-basica` (GitHub) for tornado público: trocar o link do card de Google Sites para GitHub (processo descrito acima).
+- Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).
+- Se S122 - Internet das Coisas ou Sistemas Embarcados (Lab SE) voltarem a ser ministradas em semestre futuro: recriar os cards seguindo o padrão existente, com o repositório do semestre correspondente.
 - Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
