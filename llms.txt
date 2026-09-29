@@ -19,7 +19,7 @@ Esta é a especificação e sumário semântico do site pessoal do Professor Jo�
 
 ## Unidades Curriculares e Recursos
 
-Disciplinas do semestre corrente (2026-2). Disciplinas de semestres anteriores (S122 - Internet das Coisas, Sistemas Embarcados / lab_se, Programação Básica via Google Sites) não estão sendo ministradas neste semestre e foram removidas desta lista.
+Disciplinas do semestre corrente (2026-2). Disciplinas de semestres anteriores (S122 - Internet das Coisas, Sistemas Embarcados / lab-se, Programação Básica via Google Sites) não estão sendo ministradas neste semestre e foram removidas desta lista.
 
 ### 1. S086 - Sistemas Microprocessados
 - **Descrição:** Guia técnico e laboratório prático da disciplina, com hardware ESP32 e Arduino UNO programados em C/C++ (Arduino framework).

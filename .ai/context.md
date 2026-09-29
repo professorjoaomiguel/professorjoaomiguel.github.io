@@ -21,7 +21,7 @@ Esta é a **fonte única de verdade (SSoT)** deste repositório para qualquer ag
 - **Disciplinas ministradas (semestre corrente, 2026-2):**
   - **S086 - Sistemas Microprocessados** (ESP32, Arduino UNO, C/C++, simulação Wokwi)
   - **S053 - Programação Básica** (algoritmos, pseudocódigo, fluxograma, Linguagem C) — exercícios do semestre no repositório [`S053-2026-2`](https://github.com/professorjoaomiguel/S053-2026-2) (público desde 2026-09-07)
-  - **Disciplinas de semestres anteriores, não ministradas neste semestre (2026-2), confirmado pelo usuário em 2026-09-07:** S122 - Internet das Coisas, Sistemas Embarcados (Lab SE), Programação Básica (versão antiga via `lab_intro`/Google Sites). Cards mantidos comentados (`<!-- -->`, sem aninhar comentários) dentro do `.grid` em `index.html` — a pedido do usuário, ocultos mas prontos para reativar, em vez de removidos. Não descomentar sem nova instrução explícita do usuário.
+  - **Disciplinas de semestres anteriores, não ministradas neste semestre (2026-2), confirmado pelo usuário em 2026-09-07:** S122 - Internet das Coisas, Sistemas Embarcados (Lab SE), Programação Básica (versão antiga via `lab-intro`/Google Sites). Cards mantidos comentados (`<!-- -->`, sem aninhar comentários) dentro do `.grid` em `index.html` — a pedido do usuário, ocultos mas prontos para reativar, em vez de removidos. Não descomentar sem nova instrução explícita do usuário.
 
 ## Visão Geral do Repositório
 
@@ -52,10 +52,10 @@ Estado atual (checado em 2026-09-07 — usuário confirmou explicitamente quais 
 |---|---|---|---|
 | `S086_2026-2` | S086 - Sistemas Microprocessados (2026-2) | público | visível (card "S086 - Sistemas Microprocessados") |
 | `S053-2026-2` | S053 - Programação Básica — exercícios do semestre corrente (2026-2) | público (criado e publicado em 2026-09-07, antes só existia local em `C:\GitHub\S053-2026-2`) | visível (card "S053 - Programação Básica") |
-| `lab_se` | Sistemas Embarcados (Lab SE) | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07) |
+| `lab-se` | Sistemas Embarcados (Lab SE) | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07) |
 | `S122_2026-1` | Internet das Coisas — semestre 2026-1 | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07); repo permanece público no GitHub |
 | `programacao-basica` | Programação Básica — conteúdo perene (slides, material teórico) para onde o usuário está migrando aos poucos | privado | não incluído — não linkar até o usuário tornar público (ver nota abaixo) |
-| `lab_intro` | Programação Básica (labs Arduino/Wokwi/Tinkercad, versão anterior) | público | não incluído — não é a UC do semestre corrente; não confundir com `S053-2026-2` |
+| `lab-intro` | Programação Básica (labs Arduino/Wokwi/Tinkercad, versão anterior) | público | não incluído — não é a UC do semestre corrente; não confundir com `S053-2026-2` |
 
 ### Dois repositórios para Programação Básica (usuário esclareceu em 2026-09-07)
 - **`S053-2026-2`** — exercícios e conteúdo do semestre corrente (aulas, código em C). É o que aparece no site.
@@ -141,11 +141,11 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 
 ### 2026-09-07: Atualização para as UCs do semestre 2026-2
 - **Motivo:** usuário pediu para atualizar o site para refletir as UCs efetivamente em curso neste semestre (2026-2); grid de disciplinas estava desatualizado (misturava disciplinas de semestres anteriores com a atual).
-- Usuário confirmou explicitamente: apenas **S086 - Sistemas Microprocessados** e **S053 - Programação Básica** estão sendo ministradas neste semestre. S122 - Internet das Coisas e Sistemas Embarcados (Lab SE) não estão em curso — cards inicialmente removidos de `index.html` e `llms.txt` (repositórios GitHub `S122_2026-1` e `lab_se` permanecem públicos, só não têm mais card visível no site).
+- Usuário confirmou explicitamente: apenas **S086 - Sistemas Microprocessados** e **S053 - Programação Básica** estão sendo ministradas neste semestre. S122 - Internet das Coisas e Sistemas Embarcados (Lab SE) não estão em curso — cards inicialmente removidos de `index.html` e `llms.txt` (repositórios GitHub `S122_2026-1` e `lab-se` permanecem públicos, só não têm mais card visível no site).
 - **Ajuste posterior no mesmo dia:** usuário pediu para trazer de volta os 3 cards antigos (S122, Sistemas Embarcados, Programação Básica via Google Sites) só que **ocultos**, não removidos do código-fonte. Reinseridos dentro de um único bloco de comentário HTML (`<!-- ... -->`) no `.grid` de `index.html`, com cuidado de não aninhar comentários (cada `<!-- nome -->` interno virou apenas texto simples, senão o primeiro `-->` fecharia o comentário cedo e vazaria os cards). Validado programaticamente que os 3 cards somem ao remover comentários (simulando o parser do navegador) e que S086/S053 continuam visíveis. `llms.txt` não foi alterado neste ajuste (a nota resumida sobre disciplinas antigas já está lá).
 - Repositório `S053-2026-2` (exercícios do semestre, antes só local em `C:\GitHub\S053-2026-2`) foi criado e publicado no GitHub como público nesta sessão (`gh repo create` + push); card "S053 - Programação Básica" adicionado em `index.html` e entrada correspondente em `llms.txt`.
 - Usuário esclareceu que existe um **segundo** repositório de Programação Básica, `programacao-basica`, para onde está migrando aos poucos slides e conteúdo perene (não específico de semestre) — continua privado por decisão do usuário; não linkado ainda (ver seção "Dois repositórios para Programação Básica" acima).
-- Achado durante a investigação: `lab_intro` (repositório público, labs de Arduino/Wokwi/Tinkercad) também se descreve como material de "Programação Básica", mas é de uma versão anterior/não é a UC do semestre corrente — deixado de fora do site para não confundir com `S053-2026-2`.
+- Achado durante a investigação: `lab-intro` (repositório público, labs de Arduino/Wokwi/Tinkercad) também se descreve como material de "Programação Básica", mas é de uma versão anterior/não é a UC do semestre corrente — deixado de fora do site para não confundir com `S053-2026-2`.
 - Tabela de disciplinas e seção "Disciplinas ministradas" (Perfil) atualizadas.
 
 ## 🎯 Próximos Passos
