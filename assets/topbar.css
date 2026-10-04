@@ -90,4 +90,18 @@
         gap: 0.25rem 0.7rem;
         font-size: 0.85rem;
     }
+
+    /* Sites filhos (têm .topbar-back): 2 linhas em vez de 3.
+       Linha 1: marca à esquerda, "← Site do professor" à direita.
+       Linha 2: seções na largura inteira, rolando de lado se não couberem.
+       O site principal (sem .topbar-back) continua com uma linha só. */
+    .topbar-back {
+        margin-left: auto;
+    }
+
+    .topbar-inner:has(.topbar-back) .topnav {
+        order: 3;
+        flex-basis: 100%;
+        margin-left: 0;
+    }
 }

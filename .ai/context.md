@@ -182,6 +182,7 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - `llms.txt`: seção "Material de Apoio do Laboratório". `sitemap.xml`: URLs do Lab Boards.
 - Repo `S086_2026-2` renomeado para `S086-2026-2` (links atualizados no mesmo dia); `.claude/` adicionado ao `.gitignore`.
 - Referência visual extraída para `assets/tokens.css` + `assets/topbar.css` + `DESIGN.md` (contrato público); `index.html` passou a carregá-los. Usuário decidiu que toda referência de site web fica neste repositório.
+- `assets/topbar.css`: em até 560px, barra dos sites filhos (os que têm `.topbar-back`) passa de 3 para 2 linhas — marca + "← Site do professor" na 1ª, seções rolando de lado na 2ª (73px em 360px, antes 107px). Regra condicionada a `:has(.topbar-back)` para o site principal continuar com uma linha (42px em 360px, 48px em 480px). Pedido vindo da sessão do lab-boards.
 - `assets/og-image.jpg` **não** foi regenerado: avatar, nome, subtítulo e paleta clara do cabeçalho não mudaram.
 
 ## 🎯 Próximos Passos
