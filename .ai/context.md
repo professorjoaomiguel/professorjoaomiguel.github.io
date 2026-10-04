@@ -20,7 +20,7 @@ Esta é a **fonte única de verdade (SSoT)** deste repositório para qualquer ag
 - **Contatos descontinuados (não incluir no site):** canal de Telegram `@canalprofessorjoaomiguel` e página do Facebook (`facebook.com/professorjoaomiguel`) — confirmados em desuso pelo usuário em 2026-07-23; existem no Linktree antigo mas não devem ser replicados aqui.
 - **Disciplinas ministradas (semestre corrente, 2026-2):**
   - **S086 - Sistemas Microprocessados** (ESP32, Arduino UNO, C/C++, simulação Wokwi)
-  - **S053 - Programação Básica** (algoritmos, pseudocódigo, fluxograma, Linguagem C) — exercícios do semestre no repositório [`S053-2026-2`](https://github.com/professorjoaomiguel/S053-2026-2) (público desde 2026-09-07)
+  - **S053 - Programação Básica** (algoritmos, pseudocódigo, fluxograma, Linguagem C) — exercícios do semestre no repositório `S053-2026-2`, **privado desde (no máximo) 2026-10-04**: card oculto no site
   - **Disciplinas de semestres anteriores, não ministradas neste semestre (2026-2), confirmado pelo usuário em 2026-09-07:** S122 - Internet das Coisas, Sistemas Embarcados (Lab SE), Programação Básica (versão antiga via `lab-intro`/Google Sites). Cards mantidos comentados (`<!-- -->`, sem aninhar comentários) dentro do `.grid` em `index.html` — a pedido do usuário, ocultos mas prontos para reativar, em vez de removidos. Não descomentar sem nova instrução explícita do usuário.
 
 ## Visão Geral do Repositório
@@ -51,14 +51,14 @@ Estado atual (checado em 2026-09-07 — usuário confirmou explicitamente quais 
 | Repositório | Disciplina | Visibilidade | Card no site |
 |---|---|---|---|
 | `S086-2026-2` | S086 - Sistemas Microprocessados (2026-2) | público | visível (card "S086 - Sistemas Microprocessados") |
-| `S053-2026-2` | S053 - Programação Básica — exercícios do semestre corrente (2026-2) | público (criado e publicado em 2026-09-07, antes só existia local em `C:\GitHub\S053-2026-2`) | visível (card "S053 - Programação Básica") |
+| `S053-2026-2` | S053 - Programação Básica — exercícios do semestre corrente (2026-2) | **privado** (publicado em 2026-09-07; encontrado privado em 2026-10-04 — link dava 404) | **oculto** (comentado em `index.html` a pedido do usuário em 2026-10-04; removido do `llms.txt`). Reativar só se o repo voltar a ser público |
 | `lab-se` | Sistemas Embarcados (Lab SE) | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07) |
 | `S122_2026-1` | Internet das Coisas — semestre 2026-1 | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07); repo permanece público no GitHub |
 | `programacao-basica` | Programação Básica — conteúdo perene (slides, material teórico) para onde o usuário está migrando aos poucos | privado | não incluído — não linkar até o usuário tornar público (ver nota abaixo) |
 | `lab-intro` | Programação Básica (labs Arduino/Wokwi/Tinkercad, versão anterior) | público | não incluído — não é a UC do semestre corrente; não confundir com `S053-2026-2` |
 
 ### Dois repositórios para Programação Básica (usuário esclareceu em 2026-09-07)
-- **`S053-2026-2`** — exercícios e conteúdo do semestre corrente (aulas, código em C). É o que aparece no site.
+- **`S053-2026-2`** — exercícios e conteúdo do semestre corrente (aulas, código em C). Era o link do card; hoje privado, card oculto.
 - **`programacao-basica`** — repositório separado para onde o usuário está migrando aos poucos os slides e o conteúdo mais perene (não específico de um semestre). Continua **privado**; usuário decidiu (2026-09-07) não linká-lo ainda. Quando ele tornar esse repositório público, adicionar um segundo `card-link` dentro do mesmo card "S053 - Programação Básica" (ex.: "Exercícios" → `S053-2026-2`, "Slides/Material" → `programacao-basica`) — não criar um card separado, já que é a mesma UC.
 
 ### Achado: subsite legado de Programação Básica
@@ -185,7 +185,11 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - `assets/topbar.css`: em até 560px, barra dos sites filhos (os que têm `.topbar-back`) passa de 3 para 2 linhas — marca + "← Site do professor" na 1ª, seções rolando de lado na 2ª (76px em 360px medido no ar depois do `c761d71`, antes 107px; desktop 48px). Regra condicionada a `:has(.topbar-back)` para o site principal continuar com uma linha (42px em 360px, 48px em 480px). Pedido vindo da sessão do lab-boards. Depois, token `--anchor-offset` (4,5rem; 5,5rem até 560px em sites filhos) para as âncoras não ficarem sob a barra de 2 linhas.
 - `assets/og-image.jpg` **não** foi regenerado: avatar, nome, subtítulo e paleta clara do cabeçalho não mudaram.
 
+### 2026-10-04 (cont.): card S053 oculto
+- Auditoria no ar achou o card "S053 - Programação Básica" levando a 404: o repositório `S053-2026-2` está **privado**. Usuário pediu para ocultar o card (movido para o bloco `OCULTOS` comentado do `.grid`, sem aninhar comentários; validado que só S086 e Lab Boards ficam visíveis) e a entrada foi removida do `llms.txt` (com nota de que a UC segue em curso sem material público).
+
 ## 🎯 Próximos Passos
+- Se `S053-2026-2` voltar a ser público: descomentar o card S053 no bloco `OCULTOS` de `index.html` e devolver a entrada ao `llms.txt` (confirmar visibilidade com `gh repo view`).
 - Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).
 - Se S122 - Internet das Coisas ou Sistemas Embarcados (Lab SE) voltarem a ser ministradas em semestre futuro: descomentar o card correspondente no bloco `OCULTOS` do `.grid` em `index.html` (atualizando o repositório do semestre, se mudou) em vez de recriar do zero; adicionar de volta a entrada em `llms.txt`.
 - Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
