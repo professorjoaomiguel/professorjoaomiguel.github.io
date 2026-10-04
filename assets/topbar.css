@@ -1,0 +1,93 @@
+/*
+ * Barra do topo compartilhada — mesma barra em todos os sites do professor.
+ * Depende de /assets/tokens.css (carregar antes).
+ *
+ * Marcação (ver DESIGN.md):
+ *   <nav class="topbar" aria-label="...">
+ *     <div class="topbar-inner">
+ *       <a class="brand" href="..."><img src="/assets/avatar.png" alt="" width="28" height="28"><span>Nome do site</span></a>
+ *       <ul class="topnav"> <li><a href="...">Seção</a></li> ... </ul>
+ *       <a class="topbar-back" href="https://professorjoaomiguel.github.io/">← Site do professor</a>   (só nos sites filhos)
+ *     </div>
+ *   </nav>
+ *
+ * Autor: Prof. Me. João Miguel Lac Roehe (@professorjoaomiguel) — CC BY-NC-SA 4.0
+ */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font);
+}
+
+.topbar-inner {
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0.6rem var(--gutter);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1rem;
+}
+
+.topbar .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.topbar .brand img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+.topnav {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem 1.25rem;
+    margin: 0 0 0 auto;
+    padding: 0;
+    overflow-x: auto;
+    font-size: 0.95rem;
+}
+
+.topnav a,
+.topbar-back {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.topnav a:hover,
+.topbar-back:hover {
+    color: var(--accent);
+}
+
+.topbar-back {
+    font-size: 0.9rem;
+}
+
+.topbar a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+@media (max-width: 560px) {
+    .topbar-inner {
+        gap: 0.4rem 0.75rem;
+    }
+    .topnav {
+        gap: 0.25rem 0.7rem;
+        font-size: 0.85rem;
+    }
+}

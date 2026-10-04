@@ -25,43 +25,14 @@
     <meta name="twitter:description" content="Página pessoal do Professor João Miguel Lac Roehe: disciplinas de IoT, Sistemas Embarcados e Programação, e links de contato.">
     <meta name="twitter:image" content="https://professorjoaomiguel.github.io/assets/og-image.jpg">
 
-    <!-- Google Fonts -->
+    <!-- Referência visual compartilhada com os outros sites (ver DESIGN.md) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS Estilos Premium -->
+    <link rel="stylesheet" href="/assets/tokens.css">
+    <link rel="stylesheet" href="/assets/topbar.css">
+
+    <!-- Estilos próprios desta página -->
     <style>
-        :root {
-            /* HSL Paleta Harmoniosa (Slate & Indigo Accent) */
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --accent: #4f46e5;
-            --accent-light: #e0e7ff;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --font: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        /* Dark Mode automático baseado nas preferências do usuário */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-primary: #090d16;
-                --bg-secondary: #111827;
-                --text-primary: #f8fafc;
-                --text-secondary: #94a3b8;
-                --accent: #818cf8;
-                --accent-light: #1e1b4b;
-                --border: #1f2937;
-                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-                --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-            }
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -90,79 +61,16 @@
             }
         }
 
-        /* Barra de seções: mesma barra do Lab Boards (fundo, borda, largura), para os dois sites parecerem um só */
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background-color: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .topbar-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0.6rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .brand img {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-        }
-
-        .topnav {
-            list-style: none;
-            display: flex;
-            gap: 0.25rem 1.25rem;
-            margin-left: auto;
-            overflow-x: auto;
-            font-size: 0.95rem;
-        }
-
-        .topnav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .topnav a:hover {
-            color: var(--accent);
-        }
-
+        /* Barra do topo: componente em /assets/topbar.css. Aqui só o ajuste desta página:
+           a foto e o nome já estão no cabeçalho, então somem da barra em telas estreitas. */
         @media (max-width: 560px) {
-            .topbar-inner {
-                padding: 0.6rem 1rem;
-            }
-            .topbar-inner {
-                gap: 0.75rem;
-            }
-            .brand span {
+            .topbar .brand span {
                 display: none;
-            }
-            .topnav {
-                gap: 0.25rem 0.7rem;
-                font-size: 0.85rem;
             }
         }
 
         @media (max-width: 420px) {
-            /* Em telas estreitas o nome/foto já estão no cabeçalho: a barra fica só com as seções */
-            .brand {
+            .topbar .brand {
                 display: none;
             }
             .topnav {
@@ -176,7 +84,7 @@
         }
 
         header {
-            max-width: 900px;
+            max-width: var(--page-max);
             width: 100%;
             margin: 0 auto;
             padding: 3rem 2rem 1rem 2rem;
@@ -201,6 +109,13 @@
             background: linear-gradient(to right, var(--text-primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 560px) {
+            h1 {
+                font-size: 2rem;
+                line-height: 1.15;
+            }
         }
 
         .subtitle {
@@ -257,7 +172,7 @@
         }
 
         main {
-            max-width: 900px;
+            max-width: var(--page-max);
             width: 100%;
             margin: 0 auto;
             padding: 2rem;
@@ -294,7 +209,7 @@
             position: relative;
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 2rem;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -373,7 +288,7 @@
         .lab-panel {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
             margin-bottom: 3rem;
             overflow: hidden;
@@ -426,7 +341,7 @@
             display: block;
             height: 100%;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             padding: 0.9rem 1rem;
             text-decoration: none;
             color: var(--text-primary);
@@ -477,7 +392,7 @@
             gap: 0.6rem;
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             padding: 1rem 1.2rem;
             color: var(--text-primary);
             text-decoration: none;

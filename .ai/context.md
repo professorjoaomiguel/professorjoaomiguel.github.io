@@ -31,7 +31,7 @@ Este é o **repositório do site pessoal** (GitHub Pages) para [@professorjoaomi
 
 ## Tech Stack & Design System
 
-- **Core:** HTML5 e CSS3 puro (sem frameworks/build step).
+- **Core:** HTML5 e CSS3 puro (sem frameworks/build step). Tokens e barra do topo em arquivos compartilhados (`assets/tokens.css`, `assets/topbar.css`) — ver `DESIGN.md`.
 - **JavaScript:** apenas o mínimo vanilla necessário para *progressive enhancement* pontual (hoje: montar o link de e-mail em runtime para dificultar coleta por bots). Não é uma exceção para adicionar lógica de aplicação — continua sendo um site estático.
 - Dark mode automático via `prefers-color-scheme`.
 - Paleta HSL (Slate & Indigo Accent), tipografia `Outfit` via Google Fonts.
@@ -72,8 +72,17 @@ Recurso **transversal**, não é uma UC: por isso tem seção própria entre as 
 
 - **Lab Boards** — repositório público [`lab-boards`](https://github.com/professorjoaomiguel/lab-boards), publicado no GitHub Pages em `https://professorjoaomiguel.github.io/lab-boards/` (project site sob o mesmo domínio deste site). Ficha de cada placa/shield usada em aula: tensão, pinagem, como programar, testes. Páginas linkadas direto do painel: `INDEX.html` (todas as placas), `IDENTIFICAR.html` (que placa é essa?), `GLOSSARIO.html`.
 - Links abrem **na mesma aba** (mesmo domínio, e o Lab Boards tem "← Site do professor" na barra do topo); repositórios no GitHub continuam em nova aba.
-- O lab-boards copia os tokens visuais deste site (`_layouts/default.html` de lá). **Este site é a referência visual**: se mudar paleta, fonte ou barra do topo aqui, avisar para replicar lá.
+- O lab-boards carrega a referência visual deste repositório (`/assets/tokens.css` e `/assets/topbar.css`) — ver seção "Referência visual compartilhada" abaixo.
 - Mesma lista em `llms.txt` (seção "Material de Apoio do Laboratório") e URLs em `sitemap.xml` — manter os três sincronizados.
+
+## Referência visual compartilhada (`DESIGN.md`, `assets/tokens.css`, `assets/topbar.css`)
+
+**Decisão do usuário (2026-10-04): toda a referência de site web fica neste repositório; os outros repositórios vêm buscar aqui.** Nenhum outro repo mantém cópia própria de cores, fonte ou barra do topo.
+
+- `DESIGN.md` (público, servido em `/DESIGN.html` e pelo raw do GitHub) é o **contrato** para agentes de outros repositórios: arquivos, tokens, marcação da barra, princípios e regras de mudança. Detalhes ficam lá; não duplicar aqui.
+- `assets/tokens.css`: variáveis de cor (claro/escuro), fonte Outfit (via `@import`), sombras, `--page-max`, `--gutter`, raios. `assets/topbar.css`: componente da barra do topo. Sites filhos carregam com caminho absoluto `/assets/...` (mesmo domínio).
+- **Regra:** variáveis e classes só são adicionadas; renomear/apagar exige checar os repos consumidores (lista no topo do `DESIGN.md`, hoje: `lab-boards`). Mudar valor vale para todos de uma vez.
+- **Ordem de deploy:** quando um repo filho passa a depender de um arquivo novo daqui, o push daqui sai antes.
 
 ## Navegação e padrões visuais (`index.html`)
 
@@ -172,6 +181,7 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - `index.html`: barra fixa de seções, cabeçalho só com Telegram, seção "Laboratório" com painel do Lab Boards (3 atalhos diretos), seção "Contato" no fim, card inteiro clicável, hover sem deslocamento, `prefers-reduced-motion`, acento escuro `#818cf8`. Detalhes em "Navegação e padrões visuais".
 - `llms.txt`: seção "Material de Apoio do Laboratório". `sitemap.xml`: URLs do Lab Boards.
 - Repo `S086_2026-2` renomeado para `S086-2026-2` (links atualizados no mesmo dia); `.claude/` adicionado ao `.gitignore`.
+- Referência visual extraída para `assets/tokens.css` + `assets/topbar.css` + `DESIGN.md` (contrato público); `index.html` passou a carregá-los. Usuário decidiu que toda referência de site web fica neste repositório.
 - `assets/og-image.jpg` **não** foi regenerado: avatar, nome, subtítulo e paleta clara do cabeçalho não mudaram.
 
 ## 🎯 Próximos Passos
