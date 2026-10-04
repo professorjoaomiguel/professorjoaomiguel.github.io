@@ -24,7 +24,7 @@ Disciplinas do semestre corrente (2026-2). Disciplinas de semestres anteriores (
 ### 1. S086 - Sistemas Microprocessados
 - **Descrição:** Guia técnico e laboratório prático da disciplina, com hardware ESP32 e Arduino UNO programados em C/C++ (Arduino framework).
 - **Simulação:** [Wokwi](https://wokwi.com) para montar e testar circuitos e código antes de ir para a placa física.
-- **Repositório de Estudos:** [S086_2026-2](https://github.com/professorjoaomiguel/S086_2026-2)
+- **Repositório de Estudos:** [S086-2026-2](https://github.com/professorjoaomiguel/S086-2026-2)
 
 ### 2. S053 - Programação Básica
 - **Descrição:** Introdução aos conceitos algorítmicos essenciais: pseudocódigo, fluxograma e desenvolvimento em Linguagem C, com exercícios práticos de cada aula.

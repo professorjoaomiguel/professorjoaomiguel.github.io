@@ -50,7 +50,7 @@ Estado atual (checado em 2026-09-07 — usuário confirmou explicitamente quais 
 
 | Repositório | Disciplina | Visibilidade | Card no site |
 |---|---|---|---|
-| `S086_2026-2` | S086 - Sistemas Microprocessados (2026-2) | público | visível (card "S086 - Sistemas Microprocessados") |
+| `S086-2026-2` | S086 - Sistemas Microprocessados (2026-2) | público | visível (card "S086 - Sistemas Microprocessados") |
 | `S053-2026-2` | S053 - Programação Básica — exercícios do semestre corrente (2026-2) | público (criado e publicado em 2026-09-07, antes só existia local em `C:\GitHub\S053-2026-2`) | visível (card "S053 - Programação Básica") |
 | `lab-se` | Sistemas Embarcados (Lab SE) | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07) |
 | `S122_2026-1` | Internet das Coisas — semestre 2026-1 | público | **oculto** (comentado em `index.html`, não removido) — não ministrada neste semestre (confirmado pelo usuário em 2026-09-07); repo permanece público no GitHub |
