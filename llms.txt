@@ -32,6 +32,16 @@ Disciplinas do semestre corrente (2026-2). Disciplinas de semestres anteriores (
 
 ---
 
+## Material de Apoio do Laboratório
+
+### Lab Boards
+- **Descrição:** Ficha de referência de cada placa e shield usados em aula (Arduino UNO R3/R4, ESP32-S3, ESP32-C3 e shields): tensão de operação (5V × 3,3V), pinagem, como programar e testes. Comum a todas as disciplinas que usam o laboratório.
+- **Site:** [professorjoaomiguel.github.io/lab-boards](https://professorjoaomiguel.github.io/lab-boards/) — [Todas as placas](https://professorjoaomiguel.github.io/lab-boards/INDEX.html), [Que placa é essa?](https://professorjoaomiguel.github.io/lab-boards/IDENTIFICAR.html), [Glossário](https://professorjoaomiguel.github.io/lab-boards/GLOSSARIO.html)
+- **Para agentes de IA:** [AGENTS.md](https://raw.githubusercontent.com/professorjoaomiguel/lab-boards/main/AGENTS.md) explica como achar a informação no repositório.
+- **Repositório:** [lab-boards](https://github.com/professorjoaomiguel/lab-boards)
+
+---
+
 ## Atalhos da Faculdade (SENAI-RS)
 
 Links institucionais de uso geral, úteis a qualquer aluno independente da disciplina:

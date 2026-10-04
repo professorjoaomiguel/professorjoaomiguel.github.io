@@ -66,6 +66,24 @@ Estado atual (checado em 2026-09-07 — usuário confirmou explicitamente quais 
 
 O mesmo hub lista outras 3 disciplinas antigas (Robótica Industrial, Instrumentação e Sensoriamento, Microprocessadores) que **não fazem parte da grade atual** — usuário decidiu (2026-07-23) deixá-las de fora do site por serem histórico; não recriar cards para elas sem nova instrução explícita.
 
+## Material de Apoio do Laboratório (seção `#laboratorio` em `index.html`)
+
+Recurso **transversal**, não é uma UC: por isso tem seção própria entre as disciplinas e os atalhos, e não um card no `.grid` (as "Regras de Links para Disciplinas" não se aplicam a ele).
+
+- **Lab Boards** — repositório público [`lab-boards`](https://github.com/professorjoaomiguel/lab-boards), publicado no GitHub Pages em `https://professorjoaomiguel.github.io/lab-boards/` (project site sob o mesmo domínio deste site). Ficha de cada placa/shield usada em aula: tensão, pinagem, como programar, testes. Páginas linkadas direto do painel: `INDEX.html` (todas as placas), `IDENTIFICAR.html` (que placa é essa?), `GLOSSARIO.html`.
+- Links abrem **na mesma aba** (mesmo domínio, e o Lab Boards tem "← Site do professor" na barra do topo); repositórios no GitHub continuam em nova aba.
+- O lab-boards copia os tokens visuais deste site (`_layouts/default.html` de lá). **Este site é a referência visual**: se mudar paleta, fonte ou barra do topo aqui, avisar para replicar lá.
+- Mesma lista em `llms.txt` (seção "Material de Apoio do Laboratório") e URLs em `sitemap.xml` — manter os três sincronizados.
+
+## Navegação e padrões visuais (`index.html`)
+
+- **Barra fixa no topo** (`.topbar`, mesmo fundo/borda da barra do Lab Boards) com âncoras: Disciplinas (`#disciplinas`), Laboratório (`#laboratorio`), Faculdade (`#faculdade`), Contato (`#contato`). Cada seção é um `<section id>` com `scroll-margin-top` para não ficar sob a barra. Abaixo de 420px a marca (foto + nome) some da barra, ficando só as seções.
+- **Cabeçalho enxuto:** só o Telegram (contato principal) + link "Outros contatos"; os demais badges (Instagram, YouTube, LinkedIn, e-mail ofuscado) ficam na seção `#contato` no fim da página.
+- **Card inteiro clicável:** o `.card-link` se estende sobre o card (`::after` com `inset: 0`); foco de teclado desenha o contorno no card (`:has(.card-link:focus-visible)`). Textos de link dizem a ação ("Abrir repositório da disciplina"), sem seta.
+- **Sem "pulo" no hover** (nada de `translateY`): hover só muda borda/sombra. `prefers-reduced-motion` desliga transições e o scroll suave.
+- **Elemento de assinatura:** a faixa de "furos metalizados" (`.lab-pins`, passo das barras de pinos) no topo do painel do laboratório. Usar com parcimônia — é o único ornamento da página.
+- **Acento no modo escuro = `#818cf8`** (antes `#6366f1`, que dava ~4,1:1 sobre `#090d16`, abaixo do AA; `#818cf8` dá ~5,9:1). Mesmo valor do Lab Boards.
+
 ## Atalhos da Faculdade (seção `.shortcut-grid` em `index.html`)
 
 Seção abaixo do grid de disciplinas com links institucionais genéricos (úteis a qualquer aluno, não específicos de uma disciplina): Portal da Faculdade SENAI, Portal do Aluno, AVA Moodle, Conta Google Institucional, Biblioteca Virtual, Pergamum. Mesma lista replicada em `llms.txt` na seção "Atalhos da Faculdade (SENAI-RS)".
@@ -147,6 +165,14 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - Usuário esclareceu que existe um **segundo** repositório de Programação Básica, `programacao-basica`, para onde está migrando aos poucos slides e conteúdo perene (não específico de semestre) — continua privado por decisão do usuário; não linkado ainda (ver seção "Dois repositórios para Programação Básica" acima).
 - Achado durante a investigação: `lab-intro` (repositório público, labs de Arduino/Wokwi/Tinkercad) também se descreve como material de "Programação Básica", mas é de uma versão anterior/não é a UC do semestre corrente — deixado de fora do site para não confundir com `S053-2026-2`.
 - Tabela de disciplinas e seção "Disciplinas ministradas" (Perfil) atualizadas.
+
+### 2026-10-04: Lab Boards no site e passada de navegabilidade
+- **Motivo:** usuário pediu para os alunos acessarem o `lab-boards` (documentação das placas) pelo site e para melhorar a navegabilidade, mantendo este site como referência de harmonia visual.
+- Em paralelo, o `lab-boards` foi adequado (README voltado ao aluno, "Que placa é essa?", glossário, autoria/contatos alinhados) e publicado no GitHub Pages em `/lab-boards/` com layout que copia os tokens deste site.
+- `index.html`: barra fixa de seções, cabeçalho só com Telegram, seção "Laboratório" com painel do Lab Boards (3 atalhos diretos), seção "Contato" no fim, card inteiro clicável, hover sem deslocamento, `prefers-reduced-motion`, acento escuro `#818cf8`. Detalhes em "Navegação e padrões visuais".
+- `llms.txt`: seção "Material de Apoio do Laboratório". `sitemap.xml`: URLs do Lab Boards.
+- Repo `S086_2026-2` renomeado para `S086-2026-2` (links atualizados no mesmo dia); `.claude/` adicionado ao `.gitignore`.
+- `assets/og-image.jpg` **não** foi regenerado: avatar, nome, subtítulo e paleta clara do cabeçalho não mudaram.
 
 ## 🎯 Próximos Passos
 - Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).

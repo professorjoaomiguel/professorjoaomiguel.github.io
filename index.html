@@ -54,7 +54,7 @@
                 --bg-secondary: #111827;
                 --text-primary: #f8fafc;
                 --text-secondary: #94a3b8;
-                --accent: #6366f1;
+                --accent: #818cf8;
                 --accent-light: #1e1b4b;
                 --border: #1f2937;
                 --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
@@ -76,14 +76,110 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            transition: var(--transition);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+            }
+        }
+
+        /* Barra de seções: mesma barra do Lab Boards (fundo, borda, largura), para os dois sites parecerem um só */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topbar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.6rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .brand img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        .topnav {
+            list-style: none;
+            display: flex;
+            gap: 0.25rem 1.25rem;
+            margin-left: auto;
+            overflow-x: auto;
+            font-size: 0.95rem;
+        }
+
+        .topnav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .topnav a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 560px) {
+            .topbar-inner {
+                padding: 0.6rem 1rem;
+            }
+            .topbar-inner {
+                gap: 0.75rem;
+            }
+            .brand span {
+                display: none;
+            }
+            .topnav {
+                gap: 0.25rem 0.7rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            /* Em telas estreitas o nome/foto já estão no cabeçalho: a barra fica só com as seções */
+            .brand {
+                display: none;
+            }
+            .topnav {
+                margin: 0 auto;
+            }
+        }
+
+        /* Âncoras não ficam escondidas atrás da barra fixa */
+        section[id] {
+            scroll-margin-top: 4.5rem;
         }
 
         header {
             max-width: 900px;
             width: 100%;
             margin: 0 auto;
-            padding: 4rem 2rem 2rem 2rem;
+            padding: 3rem 2rem 1rem 2rem;
             text-align: center;
         }
 
@@ -140,9 +236,15 @@
         }
 
         .contact-badge:hover {
-            transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent);
+        }
+
+        .header-more {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         footer .license {
@@ -189,6 +291,7 @@
         }
 
         .card {
+            position: relative;
             background-color: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 16px;
@@ -199,10 +302,27 @@
             flex-direction: column;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
+        /* O card inteiro é a área de clique (o link se estende sobre ele) */
+        .card:hover,
+        .card:focus-within {
             box-shadow: var(--shadow-hover);
             border-color: var(--accent);
+        }
+
+        .card .card-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+
+        .card .card-link:focus-visible {
+            outline: none;
+        }
+
+        .card:has(.card-link:focus-visible) {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
         }
 
         .card-icon {
@@ -243,8 +363,99 @@
             transition: var(--transition);
         }
 
-        .card-link:hover {
-            gap: 0.5rem;
+        .card:hover .card-link {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Laboratório: único elemento com assinatura própria — uma barra de pinos
+           (passo de 2,54 mm das placas) no topo do painel */
+        .lab-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .lab-pins {
+            height: 22px;
+            background-color: var(--accent-light);
+            /* furos metalizados: anel na cor de destaque, centro vazado */
+            background-image: radial-gradient(circle, var(--bg-secondary) 0 2px, var(--accent) 2.5px 4.5px, transparent 5px);
+            background-size: 16px 22px;
+            background-repeat: space no-repeat;
+            background-position: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .lab-body {
+            padding: 1.75rem 2rem 2rem;
+        }
+
+        .lab-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .lab-body > p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 62ch;
+            margin-bottom: 1.25rem;
+        }
+
+        .lab-links {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .lab-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .lab-links a {
+            display: block;
+            height: 100%;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.9rem 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .lab-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lab-links small {
+            display: block;
+            margin-top: 0.2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        .lab-main {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .contact-section .contact-row {
+            justify-content: flex-start;
+            margin-bottom: 3rem;
         }
 
         .shortcut-grid {
@@ -277,7 +488,6 @@
         }
 
         .shortcut:hover {
-            transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
             border-color: var(--accent);
         }
@@ -340,7 +550,19 @@
 </head>
 <body>
 
-    <header>
+    <nav class="topbar" aria-label="Seções da página">
+        <div class="topbar-inner">
+            <a class="brand" href="#inicio"><img src="/assets/avatar.png" alt="" width="28" height="28"><span>Prof. João Miguel</span></a>
+            <ul class="topnav">
+                <li><a href="#disciplinas">Disciplinas</a></li>
+                <li><a href="#laboratorio">Laboratório</a></li>
+                <li><a href="#faculdade">Faculdade</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="inicio">
         <img src="/assets/avatar.png" alt="Foto do Prof. João Miguel Lac Roehe" class="avatar">
         <h1>Prof. João Miguel</h1>
         <p class="subtitle">Professor na Faculdade de Tecnologia SENAI Porto Alegre, especializado no desenvolvimento e ensino de Sistemas Embarcados, Internet das Coisas e Programação.</p>
@@ -348,23 +570,14 @@
             <a href="https://t.me/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
                 💬 Falar no Telegram
             </a>
-            <a href="https://www.instagram.com/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
-                📸 Seguir no Instagram
-            </a>
-            <a href="https://www.youtube.com/c/professorjoaomiguel?sub_confirmation=1" class="contact-badge" target="_blank" rel="noopener noreferrer">
-                ▶️ Inscrever-se no YouTube
-            </a>
-            <a href="https://www.linkedin.com/in/joaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
-                💼 Conectar no LinkedIn
-            </a>
-            <a href="#" class="contact-badge" id="email-badge" rel="noopener noreferrer" aria-label="Enviar e-mail institucional">
-                ✉️ <span id="email-label">E-mail institucional</span>
-            </a>
         </div>
+        <a href="#contato" class="header-more">Outros contatos: Instagram, YouTube, LinkedIn e e-mail</a>
     </header>
 
     <main>
-        <h2>🏛️ Unidades Curriculares</h2>
+        <section id="disciplinas" aria-labelledby="titulo-disciplinas">
+        <h2 id="titulo-disciplinas">🏛️ Unidades Curriculares</h2>
+
         
         <div class="grid">
             <!-- Sistemas Microprocessados -->
@@ -372,7 +585,7 @@
                 <div class="card-icon" aria-hidden="true">🔧</div>
                 <h3>S086 - Sistemas Microprocessados</h3>
                 <p>Guia técnico e laboratório prático com ESP32 e Arduino UNO, programados em C/C++ (Arduino framework), com simulação de circuitos no Wokwi antes de ir para a placa física.</p>
-                <a href="https://github.com/professorjoaomiguel/S086-2026-2" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+                <a href="https://github.com/professorjoaomiguel/S086-2026-2" class="card-link" target="_blank" rel="noopener noreferrer">Abrir repositório da disciplina</a>
             </div>
 
             <!-- Programação Básica -->
@@ -380,7 +593,7 @@
                 <div class="card-icon" aria-hidden="true">💻</div>
                 <h3>S053 - Programação Básica</h3>
                 <p>Fundamentos de lógica de programação: algoritmos, pseudocódigo, fluxograma e desenvolvimento em Linguagem C, com exercícios práticos de cada aula.</p>
-                <a href="https://github.com/professorjoaomiguel/S053-2026-2" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+                <a href="https://github.com/professorjoaomiguel/S053-2026-2" class="card-link" target="_blank" rel="noopener noreferrer">Abrir repositório da disciplina</a>
             </div>
 
             <!--
@@ -393,7 +606,7 @@
                 <div class="card-icon" aria-hidden="true">🌐</div>
                 <h3>S122 - Internet das Coisas</h3>
                 <p>Abordagem prática cobrindo a arquitetura IoT de ponta a ponta (Percepção à Nuvem) com foco no projeto integrador da Estufa Inteligente utilizando ESP32, MQTT e Docker.</p>
-                <a href="https://github.com/professorjoaomiguel/S122_2026-1" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+                <a href="https://github.com/professorjoaomiguel/S122_2026-1" class="card-link" target="_blank" rel="noopener noreferrer">Abrir repositório da disciplina</a>
             </div>
 
               Sistemas Embarcados
@@ -401,7 +614,7 @@
                 <div class="card-icon" aria-hidden="true">🔋</div>
                 <h3>Sistemas Embarcados</h3>
                 <p>Laboratório prático utilizando a linguagem MicroPython no microcontrolador ESP32 acoplado a um Shield Multifuncional para implementar lógicas de controle, sensores e atuadores.</p>
-                <a href="https://github.com/professorjoaomiguel/lab-se" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Repositório &rarr;</a>
+                <a href="https://github.com/professorjoaomiguel/lab-se" class="card-link" target="_blank" rel="noopener noreferrer">Abrir repositório da disciplina</a>
             </div>
 
               Programação Básica (versão antiga, via Google Sites)
@@ -410,12 +623,32 @@
                 <h3>Programação Básica</h3>
                 <p>Fundamentos de lógica de programação, cobrindo estruturas condicionais, de repetição, manipulação de dados de entrada/saída e desenvolvimento de algoritmos básicos.</p>
                 <div class="card-note">📦 Repositório de código no GitHub em breve — por enquanto, acesse o material completo da disciplina abaixo.</div>
-                <a href="https://sites.google.com/view/pjm-programacao/" class="card-link" target="_blank" rel="noopener noreferrer">Acessar Material da Disciplina &rarr;</a>
+                <a href="https://sites.google.com/view/pjm-programacao/" class="card-link" target="_blank" rel="noopener noreferrer">Abrir material da disciplina</a>
             </div>
             -->
         </div>
+        </section>
 
-        <h2>🔗 Atalhos da Faculdade</h2>
+        <section id="laboratorio" aria-labelledby="titulo-laboratorio">
+        <h2 id="titulo-laboratorio">🔌 Laboratório</h2>
+
+        <div class="lab-panel">
+            <div class="lab-pins" aria-hidden="true"></div>
+            <div class="lab-body">
+                <h3>Lab Boards</h3>
+                <p>Ficha de cada placa e shield usados em aula (Arduino UNO, ESP32 e shields): tensão de operação, pinagem, como programar e como testar. Vale para todas as disciplinas que usam o laboratório.</p>
+                <ul class="lab-links">
+                    <li><a href="https://professorjoaomiguel.github.io/lab-boards/INDEX.html">Todas as placas<small>Lista com a tensão e a ficha de cada uma</small></a></li>
+                    <li><a href="https://professorjoaomiguel.github.io/lab-boards/IDENTIFICAR.html">Que placa é essa?<small>Descubra pela aparência: conector, formato, chip</small></a></li>
+                    <li><a href="https://professorjoaomiguel.github.io/lab-boards/GLOSSARIO.html">Glossário<small>ADC, PWM, pull-up e outros termos</small></a></li>
+                </ul>
+                <a href="https://professorjoaomiguel.github.io/lab-boards/" class="lab-main">Abrir o Lab Boards</a>
+            </div>
+        </div>
+        </section>
+
+        <section id="faculdade" aria-labelledby="titulo-faculdade">
+        <h2 id="titulo-faculdade">🔗 Atalhos da Faculdade</h2>
 
         <div class="shortcut-grid">
             <a href="https://www.senairs.org.br/faculdade-senai" class="shortcut" target="_blank" rel="noopener noreferrer">
@@ -437,6 +670,28 @@
                 <span class="shortcut-icon" aria-hidden="true">🔎</span> Pergamum (Biblioteca SENAI-RS)
             </a>
         </div>
+        </section>
+
+        <section id="contato" class="contact-section" aria-labelledby="titulo-contato">
+        <h2 id="titulo-contato">💬 Contato</h2>
+        <div class="contact-row">
+            <a href="https://t.me/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                💬 Falar no Telegram
+            </a>
+            <a href="https://www.instagram.com/professorjoaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                📸 Seguir no Instagram
+            </a>
+            <a href="https://www.youtube.com/c/professorjoaomiguel?sub_confirmation=1" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                ▶️ Inscrever-se no YouTube
+            </a>
+            <a href="https://www.linkedin.com/in/joaomiguel" class="contact-badge" target="_blank" rel="noopener noreferrer">
+                💼 Conectar no LinkedIn
+            </a>
+            <a href="#" class="contact-badge" id="email-badge" rel="noopener noreferrer" aria-label="Enviar e-mail institucional">
+                ✉️ <span id="email-label">E-mail institucional</span>
+            </a>
+        </div>
+        </section>
     </main>
 
     <footer>
