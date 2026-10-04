@@ -51,6 +51,7 @@ usa como valor de reserva, ex.: `color: var(--accent, #4f46e5)`.
 | `--page-max` | `900px` | | largura do conteúdo e da barra |
 | `--gutter` | `2rem` (`1rem` até 560px) | | respiro lateral |
 | `--radius-lg` / `-md` / `-sm` | `16px` / `12px` / `8px` | | painéis / sub-blocos / código e imagens |
+| `--anchor-offset` | `4.5rem` (`5.5rem` até 560px em sites filhos) | | `scroll-margin-top` de âncoras |
 
 O modo escuro é **automático** (`prefers-color-scheme`); não há botão de tema.
 
@@ -72,8 +73,12 @@ O modo escuro é **automático** (`prefers-color-scheme`); não há botão de te
 - `.topbar-back` só existe nos sites filhos (no site principal não faz sentido).
 - No máximo 4 ou 5 itens em `.topnav`, com nomes curtos: no celular a barra
   precisa caber em 360px.
-- A barra é `position: sticky`; seções com âncora precisam de
-  `scroll-margin-top` (~4,5rem) para não ficar embaixo dela.
+- A barra é `position: sticky`; títulos/seções com âncora precisam de
+  `scroll-margin-top: var(--anchor-offset, 4.5rem)` para não ficar embaixo
+  dela. O token já vale `5.5rem` até 560px nos sites filhos, cuja barra tem
+  2 linhas (~76px em 360px); no site principal fica `4.5rem`.
+- Alturas medidas no ar: 48px no desktop (todos); em 360px, 42px no site
+  principal e 76px nos sites filhos.
 
 ## Princípios
 

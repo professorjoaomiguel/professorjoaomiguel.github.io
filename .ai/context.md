@@ -86,7 +86,7 @@ Recurso **transversal**, não é uma UC: por isso tem seção própria entre as 
 
 ## Navegação e padrões visuais (`index.html`)
 
-- **Barra fixa no topo** (`.topbar`, mesmo fundo/borda da barra do Lab Boards) com âncoras: Disciplinas (`#disciplinas`), Laboratório (`#laboratorio`), Faculdade (`#faculdade`), Contato (`#contato`). Cada seção é um `<section id>` com `scroll-margin-top` para não ficar sob a barra. Abaixo de 420px a marca (foto + nome) some da barra, ficando só as seções.
+- **Barra fixa no topo** (`.topbar`, componente de `assets/topbar.css` — a mesma barra do Lab Boards, não uma cópia) com âncoras: Disciplinas (`#disciplinas`), Laboratório (`#laboratorio`), Faculdade (`#faculdade`), Contato (`#contato`). Cada seção é um `<section id>` com `scroll-margin-top: var(--anchor-offset)` para não ficar sob a barra. Abaixo de 420px a marca (foto + nome) some da barra, ficando só as seções.
 - **Cabeçalho enxuto:** só o Telegram (contato principal) + link "Outros contatos"; os demais badges (Instagram, YouTube, LinkedIn, e-mail ofuscado) ficam na seção `#contato` no fim da página.
 - **Card inteiro clicável:** o `.card-link` se estende sobre o card (`::after` com `inset: 0`); foco de teclado desenha o contorno no card (`:has(.card-link:focus-visible)`). Textos de link dizem a ação ("Abrir repositório da disciplina"), sem seta.
 - **Sem "pulo" no hover** (nada de `translateY`): hover só muda borda/sombra. `prefers-reduced-motion` desliga transições e o scroll suave.
@@ -177,12 +177,12 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 
 ### 2026-10-04: Lab Boards no site e passada de navegabilidade
 - **Motivo:** usuário pediu para os alunos acessarem o `lab-boards` (documentação das placas) pelo site e para melhorar a navegabilidade, mantendo este site como referência de harmonia visual.
-- Em paralelo, o `lab-boards` foi adequado (README voltado ao aluno, "Que placa é essa?", glossário, autoria/contatos alinhados) e publicado no GitHub Pages em `/lab-boards/` com layout que copia os tokens deste site.
+- Em paralelo, o `lab-boards` foi adequado (README voltado ao aluno, "Que placa é essa?", glossário, autoria/contatos alinhados) e publicado no GitHub Pages em `/lab-boards/` e passou a **carregar** `/assets/tokens.css`, `/assets/topbar.css` e `/assets/avatar.png` deste repositório, sem cópia própria (regra "Visual do site" em `lab-boards/.ai/CONVENTIONS.md`).
 - `index.html`: barra fixa de seções, cabeçalho só com Telegram, seção "Laboratório" com painel do Lab Boards (3 atalhos diretos), seção "Contato" no fim, card inteiro clicável, hover sem deslocamento, `prefers-reduced-motion`, acento escuro `#818cf8`. Detalhes em "Navegação e padrões visuais".
 - `llms.txt`: seção "Material de Apoio do Laboratório". `sitemap.xml`: URLs do Lab Boards.
 - Repo `S086_2026-2` renomeado para `S086-2026-2` (links atualizados no mesmo dia); `.claude/` adicionado ao `.gitignore`.
 - Referência visual extraída para `assets/tokens.css` + `assets/topbar.css` + `DESIGN.md` (contrato público); `index.html` passou a carregá-los. Usuário decidiu que toda referência de site web fica neste repositório.
-- `assets/topbar.css`: em até 560px, barra dos sites filhos (os que têm `.topbar-back`) passa de 3 para 2 linhas — marca + "← Site do professor" na 1ª, seções rolando de lado na 2ª (73px em 360px, antes 107px). Regra condicionada a `:has(.topbar-back)` para o site principal continuar com uma linha (42px em 360px, 48px em 480px). Pedido vindo da sessão do lab-boards.
+- `assets/topbar.css`: em até 560px, barra dos sites filhos (os que têm `.topbar-back`) passa de 3 para 2 linhas — marca + "← Site do professor" na 1ª, seções rolando de lado na 2ª (76px em 360px medido no ar depois do `c761d71`, antes 107px; desktop 48px). Regra condicionada a `:has(.topbar-back)` para o site principal continuar com uma linha (42px em 360px, 48px em 480px). Pedido vindo da sessão do lab-boards. Depois, token `--anchor-offset` (4,5rem; 5,5rem até 560px em sites filhos) para as âncoras não ficarem sob a barra de 2 linhas.
 - `assets/og-image.jpg` **não** foi regenerado: avatar, nome, subtítulo e paleta clara do cabeçalho não mudaram.
 
 ## 🎯 Próximos Passos

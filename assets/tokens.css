@@ -39,6 +39,7 @@
     --radius-lg: 16px;          /* cards e painéis */
     --radius-md: 12px;          /* atalhos e sub-blocos */
     --radius-sm: 8px;           /* código, imagens */
+    --anchor-offset: 4.5rem;    /* scroll-margin-top de títulos/seções com âncora (barra fixa) */
 
     color-scheme: light;
 }
@@ -63,5 +64,10 @@
 @media (max-width: 560px) {
     :root {
         --gutter: 1rem;
+    }
+
+    /* Sites filhos (barra com .topbar-back) têm barra de 2 linhas no celular (~76px) */
+    :root:has(.topbar-back) {
+        --anchor-offset: 5.5rem;
     }
 }
