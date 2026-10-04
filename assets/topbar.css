@@ -21,6 +21,8 @@
     background-color: var(--bg-secondary);
     border-bottom: 1px solid var(--border);
     font-family: var(--font);
+    font-size: 1rem;      /* não herda o tamanho do corpo de cada site: barra idêntica em todos */
+    line-height: 1.6;
 }
 
 .topbar-inner {
