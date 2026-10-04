@@ -14,3 +14,6 @@ desktop.ini
 
 # Logs
 *.log
+
+# Config local de ferramentas de IA (não publicar)
+.claude/
