@@ -44,9 +44,14 @@
     color-scheme: light;
 }
 
-/* Modo escuro automático. --accent #818cf8 dá ~5,9:1 sobre --bg-primary (AA). */
+/* Modo escuro: segue o sistema, a não ser que o aluno tenha escolhido pela
+   chave da barra (/assets/theme.js põe data-theme="light" ou "dark" no <html>).
+   O bloco escuro aparece DUAS vezes (sistema e escolha manual): ao mudar um
+   valor, mude nos dois. Não usamos light-dark() porque, em navegador antigo,
+   ela invalida todas as cores de uma vez.
+   --accent #818cf8 dá ~5,9:1 sobre --bg-primary (AA). */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg-primary: #090d16;
         --bg-secondary: #111827;
         --text-primary: #f8fafc;
@@ -59,6 +64,20 @@
         --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
         color-scheme: dark;
     }
+}
+
+:root[data-theme="dark"] {
+    --bg-primary: #090d16;
+    --bg-secondary: #111827;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #818cf8;
+    --accent-light: #1e1b4b;
+    --border: #1f2937;
+    --code-bg: #1e293b;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    color-scheme: dark;
 }
 
 @media (max-width: 560px) {

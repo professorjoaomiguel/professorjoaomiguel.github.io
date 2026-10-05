@@ -15,6 +15,7 @@ Sites que usam esta referência hoje: o site principal e o
 |---|---|---|
 | [`assets/tokens.css`](assets/tokens.css) | Cores (claro e escuro), fonte Outfit, sombras, larguras, raios | `<link rel="stylesheet" href="/assets/tokens.css">` |
 | [`assets/topbar.css`](assets/topbar.css) | Barra fixa do topo (marca, seções, "← Site do professor") | `<link rel="stylesheet" href="/assets/topbar.css">` (depois do tokens) |
+| [`assets/theme.js`](assets/theme.js) | Chave claro/escuro da barra (aplica a escolha salva antes de pintar) | `<script src="/assets/theme.js"></script>` no `<head>`, **sem** `defer`/`async` |
 | [`assets/avatar.png`](assets/avatar.png) | Foto do professor (marca da barra, favicon) | `/assets/avatar.png` |
 
 Os caminhos começam com `/` de propósito: todos os sites estão sob
@@ -26,6 +27,7 @@ repositório. Recomenda-se também, no `<head>`:
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/tokens.css">
 <link rel="stylesheet" href="/assets/topbar.css">
+<script src="/assets/theme.js"></script>
 <link rel="icon" type="image/png" href="/assets/avatar.png">
 ```
 
@@ -53,7 +55,19 @@ usa como valor de reserva, ex.: `color: var(--accent, #4f46e5)`.
 | `--radius-lg` / `-md` / `-sm` | `16px` / `12px` / `8px` | | painéis / sub-blocos / código e imagens |
 | `--anchor-offset` | `4.5rem` (`5.5rem` até 560px em sites filhos) | | `scroll-margin-top` de âncoras |
 
-O modo escuro é **automático** (`prefers-color-scheme`); não há botão de tema.
+## Modo claro/escuro
+
+- Sem escolha do aluno, o site **segue o sistema** (`prefers-color-scheme`).
+- A chave da barra (`.theme-toggle` + `theme.js`) alterna claro/escuro e salva
+  a escolha no `localStorage` (chave `pjm-theme`). Como é o mesmo domínio, a
+  escolha vale para **todos** os sites do professor.
+- O `theme.js` põe `data-theme="light"` ou `"dark"` no `<html>`; o
+  `tokens.css` responde a isso. Por isso o bloco escuro aparece duas vezes no
+  `tokens.css` (sistema e escolha manual): **ao mudar uma cor escura, mude nos
+  dois**.
+- Estilo próprio de um site que dependa do tema deve usar as variáveis, nunca
+  um `@media (prefers-color-scheme)` próprio: esse não enxerga a escolha manual.
+- Sem JS, o botão fica escondido (`hidden`) e o modo automático continua.
 
 ## Barra do topo
 
@@ -66,19 +80,24 @@ O modo escuro é **automático** (`prefers-color-scheme`); não há botão de te
       <li><a href="...">Seção 2</a></li>
     </ul>
     <a class="topbar-back" href="https://professorjoaomiguel.github.io/">← Site do professor</a>
+    <button class="theme-toggle" type="button" hidden></button>
   </div>
 </nav>
 ```
 
 - `.topbar-back` só existe nos sites filhos (no site principal não faz sentido).
+- `.theme-toggle` é sempre o **último** item da barra e fica vazio: o
+  `theme.js` põe o ícone (lua/sol) e o rótulo acessível.
 - No máximo 4 ou 5 itens em `.topnav`, com nomes curtos: no celular a barra
   precisa caber em 360px.
 - A barra é `position: sticky`; títulos/seções com âncora precisam de
   `scroll-margin-top: var(--anchor-offset, 4.5rem)` para não ficar embaixo
   dela. O token já vale `5.5rem` até 560px nos sites filhos, cuja barra tem
   2 linhas (~76px em 360px); no site principal fica `4.5rem`.
-- Alturas medidas no ar: 48px no desktop (todos); em 360px, 42px no site
-  principal e 76px nos sites filhos.
+- Alturas medidas (com a chave de tema): 48px no desktop (todos); em 360px,
+  48px no site principal (uma linha, sem a marca) e 76px nos sites filhos
+  (chave na 1ª linha, ao lado de "← Site do professor"). Abaixo de 360px um
+  site filho pode ir a 3 linhas.
 
 ## Princípios
 

@@ -8,6 +8,7 @@
  *       <a class="brand" href="..."><img src="/assets/avatar.png" alt="" width="28" height="28"><span>Nome do site</span></a>
  *       <ul class="topnav"> <li><a href="...">Seção</a></li> ... </ul>
  *       <a class="topbar-back" href="https://professorjoaomiguel.github.io/">← Site do professor</a>   (só nos sites filhos)
+ *       <button class="theme-toggle" type="button" hidden></button>   (com /assets/theme.js no <head>)
  *     </div>
  *   </nav>
  *
@@ -84,6 +85,38 @@
     border-radius: 4px;
 }
 
+/* Chave claro/escuro (/assets/theme.js preenche o ícone e o rótulo).
+   Sempre o último item da barra. */
+.theme-toggle {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: -3px 0;       /* ocupa 28px na linha, como a foto da marca: a barra não cresce */
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.theme-toggle[hidden] {
+    display: none;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 @media (max-width: 560px) {
     .topbar-inner {
         gap: 0.4rem 0.75rem;
@@ -99,6 +132,13 @@
        O site principal (sem .topbar-back) continua com uma linha só. */
     .topbar-back {
         margin-left: auto;
+    }
+
+    /* Site principal: uma linha mesmo com a chave de tema; as seções
+       encolhem e rolam de lado, em vez de a chave descer de linha. */
+    .topbar-inner:not(:has(.topbar-back)) {
+        flex-wrap: nowrap;
+        gap: 0.5rem;
     }
 
     .topbar-inner:has(.topbar-back) .topnav {

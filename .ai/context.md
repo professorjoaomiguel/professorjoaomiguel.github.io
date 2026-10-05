@@ -31,9 +31,9 @@ Este é o **repositório do site pessoal** (GitHub Pages) para [@professorjoaomi
 
 ## Tech Stack & Design System
 
-- **Core:** HTML5 e CSS3 puro (sem frameworks/build step). Tokens e barra do topo em arquivos compartilhados (`assets/tokens.css`, `assets/topbar.css`) — ver `DESIGN.md`.
-- **JavaScript:** apenas o mínimo vanilla necessário para *progressive enhancement* pontual (hoje: montar o link de e-mail em runtime para dificultar coleta por bots). Não é uma exceção para adicionar lógica de aplicação — continua sendo um site estático.
-- Dark mode automático via `prefers-color-scheme`.
+- **Core:** HTML5 e CSS3 puro (sem frameworks/build step). Tokens, barra do topo e chave de tema em arquivos compartilhados (`assets/tokens.css`, `assets/topbar.css`, `assets/theme.js`) — ver `DESIGN.md`.
+- **JavaScript:** apenas o mínimo vanilla necessário para *progressive enhancement* pontual. Hoje são duas exceções: (1) montar o link de e-mail em runtime para dificultar coleta por bots; (2) `assets/theme.js`, a chave claro/escuro compartilhada. Não é uma exceção para adicionar lógica de aplicação — continua sendo um site estático.
+- Modo escuro: segue o sistema (`prefers-color-scheme`) até o aluno escolher pela chave da barra; a escolha fica no `localStorage` (`pjm-theme`) e vale para todos os sites do domínio.
 - Paleta HSL (Slate & Indigo Accent), tipografia `Outfit` via Google Fonts.
 - Acessibilidade: `:focus-visible`, landmarks HTML5, `aria-hidden` em ícones decorativos.
 - SEO/Semântica: heading hierarchy única (`h1`), JSON-LD (Schema.org `Person`), `llms.txt`, `robots.txt`, `sitemap.xml`.
@@ -80,13 +80,14 @@ Recurso **transversal**, não é uma UC: por isso tem seção própria entre as 
 **Decisão do usuário (2026-10-04): toda a referência de site web fica neste repositório; os outros repositórios vêm buscar aqui.** Nenhum outro repo mantém cópia própria de cores, fonte ou barra do topo.
 
 - `DESIGN.md` (público, servido em `/DESIGN.html` e pelo raw do GitHub) é o **contrato** para agentes de outros repositórios: arquivos, tokens, marcação da barra, princípios e regras de mudança. Detalhes ficam lá; não duplicar aqui.
-- `assets/tokens.css`: variáveis de cor (claro/escuro), fonte Outfit (via `@import`), sombras, `--page-max`, `--gutter`, raios. `assets/topbar.css`: componente da barra do topo. Sites filhos carregam com caminho absoluto `/assets/...` (mesmo domínio).
+- `assets/tokens.css`: variáveis de cor (claro/escuro), fonte Outfit (via `@import`), sombras, `--page-max`, `--gutter`, raios. `assets/topbar.css`: componente da barra do topo (inclui `.theme-toggle`). `assets/theme.js`: chave claro/escuro, carregada no `<head>` sem `defer`. Sites filhos carregam com caminho absoluto `/assets/...` (mesmo domínio).
+- **O bloco escuro do `tokens.css` está duplicado** (`@media` do sistema e `:root[data-theme="dark"]`): ao mudar uma cor escura, mudar nos dois. `light-dark()` foi descartado de propósito (em navegador antigo invalida todas as cores).
 - **Regra:** variáveis e classes só são adicionadas; renomear/apagar exige checar os repos consumidores (lista no topo do `DESIGN.md`, hoje: `lab-boards`). Mudar valor vale para todos de uma vez.
 - **Ordem de deploy:** quando um repo filho passa a depender de um arquivo novo daqui, o push daqui sai antes.
 
 ## Navegação e padrões visuais (`index.html`)
 
-- **Barra fixa no topo** (`.topbar`, componente de `assets/topbar.css` — a mesma barra do Lab Boards, não uma cópia) com âncoras: Disciplinas (`#disciplinas`), Laboratório (`#laboratorio`), Faculdade (`#faculdade`), Contato (`#contato`). Cada seção é um `<section id>` com `scroll-margin-top: var(--anchor-offset)` para não ficar sob a barra. Abaixo de 420px a marca (foto + nome) some da barra, ficando só as seções.
+- **Barra fixa no topo** (`.topbar`, componente de `assets/topbar.css` — a mesma barra do Lab Boards, não uma cópia) com âncoras: Disciplinas (`#disciplinas`), Laboratório (`#laboratorio`), Faculdade (`#faculdade`), Contato (`#contato`). Cada seção é um `<section id>` com `scroll-margin-top: var(--anchor-offset)` para não ficar sob a barra. Abaixo de 420px a marca (foto + nome) some da barra, ficando só as seções. A chave claro/escuro (`.theme-toggle`) é o último item; até 560px a barra do site principal não quebra linha (seções encolhem e rolam de lado).
 - **Cabeçalho enxuto:** só o Telegram (contato principal) + link "Outros contatos"; os demais badges (Instagram, YouTube, LinkedIn, e-mail ofuscado) ficam na seção `#contato` no fim da página.
 - **Card inteiro clicável:** o `.card-link` se estende sobre o card (`::after` com `inset: 0`); foco de teclado desenha o contorno no card (`:has(.card-link:focus-visible)`). Textos de link dizem a ação ("Abrir repositório da disciplina"), sem seta.
 - **Sem "pulo" no hover** (nada de `translateY`): hover só muda borda/sombra. `prefers-reduced-motion` desliga transições e o scroll suave.
@@ -188,7 +189,16 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 ### 2026-10-04 (cont.): card S053 oculto
 - Auditoria no ar achou o card "S053 - Programação Básica" levando a 404: o repositório `S053-2026-2` está **privado**. Usuário pediu para ocultar o card (movido para o bloco `OCULTOS` comentado do `.grid`, sem aninhar comentários; validado que só S086 e Lab Boards ficam visíveis) e a entrada foi removida do `llms.txt` (com nota de que a UC segue em curso sem material público).
 
+### 2026-10-04 (cont.): chave claro/escuro
+- **Motivo:** usuário pediu barra lateral com menu hambúrguer e chave de tema. Na conversa, a barra lateral cresceu (lateral comum a todos os sites, bloco de sites + bloco do site atual) e o usuário decidiu **simplificar: só a chave de tema agora**; a lateral ficou como ideia futura (ver Próximos Passos).
+- `assets/theme.js` (novo, compartilhado): aplica a escolha salva antes da pintura (sem flash), liga o botão `.theme-toggle`, salva em `localStorage` (`pjm-theme`) com `try/catch`. Sem escolha, segue o sistema. Sem JS, o botão fica `hidden`.
+- `assets/tokens.css`: escuro do sistema virou `@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) }` + bloco `:root[data-theme="dark"]` (só seletores acrescentados, contrato mantido).
+- `assets/topbar.css`: `.theme-toggle` (34px de toque, ocupa 28px na linha: barra continua 48px no desktop); site principal sem quebra de linha até 560px (48px em 360px, antes 42px).
+- `index.html` e `lab-boards/_layouts/default.html`: script no `<head>` + botão na barra. `DESIGN.md`: seção "Modo claro/escuro". O `inventario/relatorio.html` do lab-boards ficou sem a chave (segue o sistema).
+- Verificado localmente (site principal + cópia do layout do lab-boards no mesmo servidor): 320–1280px, sistema claro/escuro, escolha mantida ao recarregar e ao trocar de site, teclado (Tab + Enter), sem erros no console. `og-image.jpg` não muda.
+
 ## 🎯 Próximos Passos
+- **Ideia futura (adiada pelo usuário em 2026-10-04): barra lateral com menu hambúrguer em todos os sites** — bloco de sites do professor (igual em todos, lista única neste repositório) + bloco com as seções/páginas do site atual. Usuário: "outras coisas precisam evoluir para decidir como fazer". Pontos em aberto quando voltar: gaveta em todas as telas vs. fixa no desktop; lista de sites montada por script compartilhado (`/assets/sidebar.js`) vs. marcação em cada repo; relação com a `.topnav`.
 - Se `S053-2026-2` voltar a ser público: descomentar o card S053 no bloco `OCULTOS` de `index.html` e devolver a entrada ao `llms.txt` (confirmar visibilidade com `gh repo view`).
 - Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).
 - Se S122 - Internet das Coisas ou Sistemas Embarcados (Lab SE) voltarem a ser ministradas em semestre futuro: descomentar o card correspondente no bloco `OCULTOS` do `.grid` em `index.html` (atualizando o repositório do semestre, se mudou) em vez de recriar do zero; adicionar de volta a entrada em `llms.txt`.
