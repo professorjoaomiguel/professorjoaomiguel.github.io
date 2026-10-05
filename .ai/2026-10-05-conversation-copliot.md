@@ -1,4 +1,3 @@
----
 
 Você é um revisor de código especializado em boas práticas de desenvolvimento web.  
 Analise todo o repositório `professorjoaomiguel/professorjoaomiguel.github.io` e produza um relatório detalhado contendo:
