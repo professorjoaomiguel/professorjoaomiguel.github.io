@@ -203,3 +203,10 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).
 - Se S122 - Internet das Coisas ou Sistemas Embarcados (Lab SE) voltarem a ser ministradas em semestre futuro: descomentar o card correspondente no bloco `OCULTOS` do `.grid` em `index.html` (atualizando o repositório do semestre, se mudou) em vez de recriar do zero; adicionar de volta a entrada em `llms.txt`.
 - Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
+
+### 2026-10-05: Google Analytics com consentimento (LGPD)
+- **Motivo:** o snippet do GA4 (`G-P59P33Y4VV`) entrou no `<head>` coletando e gravando cookies sem consentimento. A branch do Copilot (`lgpd-default-consent-denied`) negava o consentimento mas removia o `gtag('config')` e não tinha banner, o que desligaria o GA por completo.
+- `index.html`: ordem no `<head>` = `consent default` (tudo `denied`) → relê `pjm-consent` do `localStorage` e dá `consent update` se `granted` → `js` → `config`. Sem aceite o GA4 não grava cookies.
+- `assets/consent.js` (novo, `defer`): banner Aceitar/Recusar com o mesmo peso visual, grava `pjm-consent`, chama `gtag('consent','update')` e, ao recusar, apaga os cookies `_ga*`. Rodapé tem o botão "Preferências de privacidade" para reabrir. Usa os tokens de `tokens.css`.
+- Qualquer site novo que use o GA deve repetir o mesmo trecho do `<head>` e incluir `consent.js`; não carregar o GA sem o `consent default` antes.
+- Branch do Copilot mesclada só no histórico (`-s ours`) e removida, junto com todas as branches que não são `main`.

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics 4 com consentimento (LGPD).
+         Ordem importa: 1) consent default negado, 2) escolha salva (se houver), 3) config.
+         Sem aceite, o GA4 não grava cookies; o banner está em /assets/consent.js. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P59P33Y4VV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      try {
+        if (localStorage.getItem('pjm-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) { /* sem localStorage: segue negado */ }
       gtag('js', new Date());
-
       gtag('config', 'G-P59P33Y4VV');
     </script>
 
@@ -41,6 +53,7 @@
     <link rel="stylesheet" href="/assets/tokens.css">
     <link rel="stylesheet" href="/assets/topbar.css">
     <script src="/assets/theme.js"></script>
+    <script src="/assets/consent.js" defer></script>
 
     <!-- Estilos próprios desta página -->
     <style>
@@ -625,6 +638,7 @@
     <footer>
         <p>&copy; 2026 Professor João Miguel Lac Roehe. Desenvolvido para a Faculdade de Tecnologia SENAI Porto Alegre.</p>
         <p class="license">🅭 Conteúdo sob licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
+        <p class="license"><button type="button" class="consent-reopen" hidden>Preferências de privacidade</button></p>
     </footer>
 
     <script>
