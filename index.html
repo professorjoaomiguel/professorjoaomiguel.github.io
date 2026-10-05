@@ -8,7 +8,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-P59P33Y4VV');
+      // LGPD: inicia negado até o usuário consentir no banner
+      gtag('consent', 'default', {
+        analytics_storage: 'denied'
+      });
     </script>
 
     <meta charset="UTF-8">
