@@ -2,7 +2,7 @@
 
 Site pessoal (GitHub Pages) do Prof. João Miguel — ponto de chegada para alunos, com links para as disciplinas correntes.
 
-Contexto de manutenção e convenções para agentes de IA: [`.ai/context.md`](.ai/context.md).
+Contexto de manutenção e convenções para agentes de IA: [`.ai/CONTEXT.md`](.ai/CONTEXT.md).
 
 ---
 

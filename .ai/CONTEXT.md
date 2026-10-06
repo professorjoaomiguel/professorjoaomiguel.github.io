@@ -139,8 +139,12 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 
 ## Onde fica cada coisa em `.ai/`
 
-- [`context.md`](context.md) (este arquivo): regras e convenções estáveis. Editar só quando uma regra mudar.
+- [`CONTEXT.md`](CONTEXT.md) (este arquivo): regras e convenções estáveis. Editar só quando uma regra mudar.
 - [`BACKLOG.md`](BACKLOG.md): o que falta fazer.
 - [`CHANGELOG.md`](CHANGELOG.md): o que já foi feito e por quê.
 - `*-conversation-*.md`: transcrições brutas de outras IAs, com avaliação no cabeçalho. Não são fonte de verdade.
 
+**Regras de manutenção (valem para qualquer agente de IA):**
+- Todo o conteúdo de `.ai/` é a SSoT deste repositório. Os arquivos de entrada de cada ferramenta (`CLAUDE.md`, `AGENTS.md`, `.github/copilot-instructions.md`) são só ponteiros e não duplicam conteúdo: se algo mudar, edite aqui em `.ai/`.
+- Ao fim de cada sessão: registre uma entrada no `CHANGELOG.md` e tire do `BACKLOG.md` o que foi concluído.
+- `BACKLOG.md` é o backlog versionado do projeto. Ao escrever um handoff (ex.: `/remember` do Claude Code), aponte para ele e sugira registrar lá o que só existir no handoff.

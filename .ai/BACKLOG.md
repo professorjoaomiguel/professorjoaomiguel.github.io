@@ -1,6 +1,6 @@
 # Backlog — professorjoaomiguel.github.io
 
-Itens em aberto e ideias adiadas. O que já foi feito vai para [`CHANGELOG.md`](CHANGELOG.md); regras e convenções estáveis ficam em [`context.md`](context.md).
+Itens em aberto e ideias adiadas. O que já foi feito vai para [`CHANGELOG.md`](CHANGELOG.md); regras e convenções estáveis ficam em [`CONTEXT.md`](CONTEXT.md).
 
 **Ao concluir um item:** remova-o daqui e registre-o em `CHANGELOG.md`. Ao receber uma nova pendência do usuário, acrescente aqui, com o motivo.
 

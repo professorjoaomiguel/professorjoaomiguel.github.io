@@ -1,5 +1,5 @@
 > **Transcrição bruta de uma conversa com o GitHub Copilot (2026-10-05). NÃO é fonte de verdade**:
-> a SSoT é o [`context.md`](context.md). Avaliação feita em 2026-10-05, com o usuário:
+> a SSoT é o [`CONTEXT.md`](CONTEXT.md). Avaliação feita em 2026-10-05, com o usuário:
 >
 > - **Aceitas (viraram backlog em `BACKLOG.md`):** CI com verificação de links, trocar o
 >   `@import` da fonte em `tokens.css` por `<link>`, expandir o README, frase-guia no topo, JSON-LD mais rico.

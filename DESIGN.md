@@ -119,7 +119,7 @@ usa como valor de reserva, ex.: `color: var(--accent, #4f46e5)`.
 2. Mudar um **valor** (ex.: uma cor) é permitido: vale para todos os sites de
    uma vez. Confira contraste nos dois modos.
 3. Mudança visual aqui que exija ajuste de marcação nos sites filhos: registre
-   em `.ai/context.md` e gere um prompt curto para cada repositório afetado.
+   em `.ai/CONTEXT.md` e gere um prompt curto para cada repositório afetado.
 4. Um repositório novo com site: carregue os arquivos acima, use a barra do
    topo e acrescente o site na lista do topo deste arquivo.
 

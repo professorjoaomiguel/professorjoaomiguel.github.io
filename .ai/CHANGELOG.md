@@ -1,6 +1,6 @@
 # Histórico de alterações — professorjoaomiguel.github.io
 
-O que já foi feito, com o motivo de cada mudança (mais recente por último). Os itens em aberto estão em [`BACKLOG.md`](BACKLOG.md); regras e convenções estáveis, em [`context.md`](context.md).
+O que já foi feito, com o motivo de cada mudança (mais recente por último). Os itens em aberto estão em [`BACKLOG.md`](BACKLOG.md); regras e convenções estáveis, em [`CONTEXT.md`](CONTEXT.md).
 
 **Ao concluir uma sessão:** acrescente uma entrada no fim deste arquivo (data, motivo, o que mudou) e tire de `BACKLOG.md` o que foi concluído.
 
@@ -81,7 +81,12 @@ O que já foi feito, com o motivo de cada mudança (mais recente por último). O
 - Três mudanças de texto vindas do commit `cebecd5` (meta description, card Sistemas Embarcados oculto e card Lab Boards) foram revertidas por não serem pedidas nem constarem do relatório.
 - Itens aceitos foram para `BACKLOG.md`; o resto foi descartado com motivo no cabeçalho do arquivo.
 
-### 2026-10-05 (cont.): `context.md` dividido em contexto, backlog e histórico
-- **Motivo:** `context.md` tinha ~32 KB e misturava regras estáveis, histórico (o que mais cresce) e pendências; todo agente lê o arquivo inteiro antes de agir.
-- `context.md` ficou só com regras e convenções (ganhou as seções "Analytics e consentimento (LGPD)" e "Onde fica cada coisa em `.ai/`"); o histórico foi para este `CHANGELOG.md` e os "Próximos Passos" para `BACKLOG.md`, sem reescrever o conteúdo.
-- `CLAUDE.md` passou a resumir esta organização, o uso do Google Analytics com consentimento e o GoatCounter planejado (detalhes seguem em `context.md` e `BACKLOG.md`).
+### 2026-10-05 (cont.): `CONTEXT.md` dividido em contexto, backlog e histórico
+- **Motivo:** `CONTEXT.md` tinha ~32 KB e misturava regras estáveis, histórico (o que mais cresce) e pendências; todo agente lê o arquivo inteiro antes de agir.
+- `CONTEXT.md` ficou só com regras e convenções (ganhou as seções "Analytics e consentimento (LGPD)" e "Onde fica cada coisa em `.ai/`"); o histórico foi para este `CHANGELOG.md` e os "Próximos Passos" para `BACKLOG.md`, sem reescrever o conteúdo.
+- `CLAUDE.md` passou a resumir esta organização, o uso do Google Analytics com consentimento e o GoatCounter planejado (detalhes seguem em `CONTEXT.md` e `BACKLOG.md`).
+
+### 2026-10-05 (cont.): `.ai/` como SSoT única para todos os agentes
+- **Motivo:** o usuário pediu que o conteúdo de `.ai/` seja a SSoT para todas as IAs, e que `context.md` passe a maiúsculo.
+- `context.md` renomeado para `CONTEXT.md` (todas as referências atualizadas). `CLAUDE.md`, `AGENTS.md` e `.github/copilot-instructions.md` voltaram a ser ponteiros idênticos para `CONTEXT.md`, `BACKLOG.md` e `CHANGELOG.md`.
+- O resumo de analytics que estava no `CLAUDE.md` já existe em `CONTEXT.md` ("Analytics e consentimento (LGPD)"); as regras de fim de sessão e de handoff foram para a nova seção "Regras de manutenção" de `CONTEXT.md`.
