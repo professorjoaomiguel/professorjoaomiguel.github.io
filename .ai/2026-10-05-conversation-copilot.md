@@ -1,7 +1,7 @@
 > **Transcrição bruta de uma conversa com o GitHub Copilot (2026-10-05). NÃO é fonte de verdade**:
 > a SSoT é o [`context.md`](context.md). Avaliação feita em 2026-10-05, com o usuário:
 >
-> - **Aceitas (viraram backlog em `context.md` > Próximos Passos):** CI com verificação de links, trocar o
+> - **Aceitas (viraram backlog em `BACKLOG.md`):** CI com verificação de links, trocar o
 >   `@import` da fonte em `tokens.css` por `<link>`, expandir o README, frase-guia no topo, JSON-LD mais rico.
 > - **Rejeitadas:** `mailto:` em texto plano (contraria "Ofuscação de E-mail"); remover os cards comentados
 >   (o usuário quer ocultos, não removidos); mover o CSS inline e reestruturar `assets/` em `css/` e `js/`
