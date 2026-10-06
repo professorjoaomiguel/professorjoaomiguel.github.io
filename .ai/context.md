@@ -197,16 +197,27 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
 - `index.html` e `lab-boards/_layouts/default.html`: script no `<head>` + botão na barra. `DESIGN.md`: seção "Modo claro/escuro". O `inventario/relatorio.html` do lab-boards ficou sem a chave (segue o sistema).
 - Verificado localmente (site principal + cópia do layout do lab-boards no mesmo servidor): 320–1280px, sistema claro/escuro, escolha mantida ao recarregar e ao trocar de site, teclado (Tab + Enter), sem erros no console. `og-image.jpg` não muda.
 
-## 🎯 Próximos Passos
-- **Ideia futura (adiada pelo usuário em 2026-10-04): barra lateral com menu hambúrguer em todos os sites** — bloco de sites do professor (igual em todos, lista única neste repositório) + bloco com as seções/páginas do site atual. Usuário: "outras coisas precisam evoluir para decidir como fazer". Pontos em aberto quando voltar: gaveta em todas as telas vs. fixa no desktop; lista de sites montada por script compartilhado (`/assets/sidebar.js`) vs. marcação em cada repo; relação com a `.topnav`.
-- Se `S053-2026-2` voltar a ser público: descomentar o card S053 no bloco `OCULTOS` de `index.html` e devolver a entrada ao `llms.txt` (confirmar visibilidade com `gh repo view`).
-- Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).
-- Se S122 - Internet das Coisas ou Sistemas Embarcados (Lab SE) voltarem a ser ministradas em semestre futuro: descomentar o card correspondente no bloco `OCULTOS` do `.grid` em `index.html` (atualizando o repositório do semestre, se mudou) em vez de recriar do zero; adicionar de volta a entrada em `llms.txt`.
-- Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
-
 ### 2026-10-05: Google Analytics com consentimento (LGPD)
 - **Motivo:** o snippet do GA4 (`G-P59P33Y4VV`) entrou no `<head>` coletando e gravando cookies sem consentimento. A branch do Copilot (`lgpd-default-consent-denied`) negava o consentimento mas removia o `gtag('config')` e não tinha banner, o que desligaria o GA por completo.
 - `index.html`: ordem no `<head>` = `consent default` (tudo `denied`) → relê `pjm-consent` do `localStorage` e dá `consent update` se `granted` → `js` → `config`. Sem aceite o GA4 não grava cookies.
 - `assets/consent.js` (novo, `defer`): banner Aceitar/Recusar com o mesmo peso visual, grava `pjm-consent`, chama `gtag('consent','update')` e, ao recusar, apaga os cookies `_ga*`. Rodapé tem o botão "Preferências de privacidade" para reabrir. Usa os tokens de `tokens.css`.
 - Qualquer site novo que use o GA deve repetir o mesmo trecho do `<head>` e incluir `consent.js`; não carregar o GA sem o `consent default` antes.
 - Branch do Copilot mesclada só no histórico (`-s ours`) e removida, junto com todas as branches que não são `main`.
+
+### 2026-10-05 (cont.): Avaliação do relatório do Copilot
+- **Motivo:** o usuário trouxe a transcrição de uma conversa com o Copilot (revisão de código e avaliação de UX/IA) para ser avaliada. Guardada em `.ai/2026-10-05-conversation-copilot.md` (renomeada de "copliot"), com cabeçalho dizendo o que foi aceito e rejeitado.
+- Três mudanças de texto vindas do commit `cebecd5` (meta description, card Sistemas Embarcados oculto e card Lab Boards) foram revertidas por não serem pedidas nem constarem do relatório.
+- Itens aceitos foram para "Próximos Passos"; o resto foi descartado com motivo no cabeçalho do arquivo.
+
+## 🎯 Próximos Passos
+- **Ideia futura (adiada pelo usuário em 2026-10-04): barra lateral com menu hambúrguer em todos os sites** — bloco de sites do professor (igual em todos, lista única neste repositório) + bloco com as seções/páginas do site atual. Usuário: "outras coisas precisam evoluir para decidir como fazer". Pontos em aberto quando voltar: gaveta em todas as telas vs. fixa no desktop; lista de sites montada por script compartilhado (`/assets/sidebar.js`) vs. marcação em cada repo; relação com a `.topnav`.
+- Se `S053-2026-2` voltar a ser público: descomentar o card S053 no bloco `OCULTOS` de `index.html` e devolver a entrada ao `llms.txt` (confirmar visibilidade com `gh repo view`).
+- Quando `programacao-basica` (repositório de slides/conteúdo perene) for tornado público: adicionar um segundo `card-link` no card "S053 - Programação Básica" (não criar card separado — ver "Dois repositórios para Programação Básica" acima).
+- Se S122 - Internet das Coisas ou Sistemas Embarcados (Lab SE) voltarem a ser ministradas em semestre futuro: descomentar o card correspondente no bloco `OCULTOS` do `.grid` em `index.html` (atualizando o repositório do semestre, se mudou) em vez de recriar do zero; adicionar de volta a entrada em `llms.txt`.
+- Usuário ainda precisa decidir/atualizar manualmente o Linktree (`linktr.ee/professorjoaomiguel`) para refletir os contatos atuais (adicionar LinkedIn; já tem Telegram/Instagram/YouTube; remover ou manter canal de Telegram e Facebook descontinuados) — fora do escopo deste repositório.
+- **Do relatório do Copilot (2026-10-05, aceitos):**
+  - CI (GitHub Actions) com verificação de links. Teria pegado o 404 do card S053 (repositório privado).
+  - `assets/tokens.css`: trocar o `@import` da fonte por `<link rel="stylesheet">` (o `@import` atrasa a renderização). O arquivo é compartilhado; checar `lab-boards` e os demais consumidores antes.
+  - `README.md` (9 linhas): acrescentar como rodar localmente, estrutura de arquivos e link para `DESIGN.md`.
+  - Frase-guia no topo da página ("disciplinas para aula, Laboratório para placas e shields, Contato para falar com o professor").
+  - JSON-LD: modelar disciplinas e o Lab Boards como entidades, além da `Person`.
