@@ -221,3 +221,8 @@ A imagem de preview social (Open Graph / Twitter Card) é uma captura real (não
   - `README.md` (9 linhas): acrescentar como rodar localmente, estrutura de arquivos e link para `DESIGN.md`.
   - Frase-guia no topo da página ("disciplinas para aula, Laboratório para placas e shields, Contato para falar com o professor").
   - JSON-LD: modelar disciplinas e o Lab Boards como entidades, além da `Person`.
+- **Contador de visitas com GoatCounter (https://www.goatcounter.com/), a implementar em breve (pedido do usuário em 2026-10-05):**
+  - Por quê: o GA4 sub-conta, porque só coleta com consentimento. O GoatCounter não usa cookies nem guarda dados pessoais, então conta todos os visitantes e dá um número público para o rodapé. É gratuito para uso não comercial.
+  - Pendência do usuário: criar a conta e informar o código do site (ex.: `professorjoaomiguel` em `professorjoaomiguel.goatcounter.com`). Em Settings, ativar a exibição pública da contagem (`Allow adding visitor counts on your website`).
+  - Fazer: script de contagem no `<head>` de `index.html` (`data-goatcounter` + `async`); número no rodapé lido do endpoint `/counter/<caminho>.json`, com texto neutro se o serviço falhar (sem quebrar o layout) e `aria-label`; uma frase sobre o contador no texto do banner de `assets/consent.js`; registrar no histórico.
+  - Cuidados: o número é de vitrine (robôs inflam) e não vai bater com o GA. Se o serviço sair do ar, o contador some. Os sites filhos (`lab-boards`) podem usar o mesmo código de site com caminhos diferentes, se o usuário quiser.
